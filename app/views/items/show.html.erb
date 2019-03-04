@@ -18,20 +18,13 @@
 	<div class="row">
 		<div class="col-md-6"></div>
 		<div class="col-md-3">
-			<div class="dropdown">
-			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-			    Quantity
-			  </button>
 
-			  <select class="selectpicker" data-style="select-with-transition btn btn-block" data-size="7">
-		      <% 5.times do |i| %>
-		        <option value="<%= i + 1 %>"><%= i + 1 %></option>
-				  <% end %>
-				</select>
-				
-			  <select class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-			  </select>
-			</div>
+		<select class="selectpicker " data-style="select-with-transition btn-secondary btn-round" title="Quantity" data-size="7">
+		  <% 5.times do |i| %>
+			  <option value="<%= i + 1 %>"><%= i + 1 %></option>
+			<% end %>
+		</select>
+
 		</div>
 		<div class="col-md-3">
 			<button class="btn btn-primary">Add to cart</button>
