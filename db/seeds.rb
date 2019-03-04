@@ -9,11 +9,11 @@ require 'faker'
 
 Item.destroy_all
 
-10.times do |i|
+20.times do |i|
 	my_item = Item.create(title: Faker::Games::Pokemon.name,
 												description: Faker::Creature::Cat.breed,
 												price: 0.0,
-												image_url: "../assets/images/chatons/#{i}.jpg")
+												image_url: "http://127.0.0.1:3000/assets/chatons/#{i}.jpg")
 end
 
 puts "rails db:seed complete!"

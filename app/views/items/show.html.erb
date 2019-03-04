@@ -1,24 +1,50 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
 
-<p>
-  <strong>Title:</strong>
-  <%= @item.title %>
-</p>
+	<div class="row">
+		<div class="col-md-4 border">
+	  	<img src="<%= @item.image_url %>">
+		</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @item.description %>
-</p>
+		<div class="col-md-8 border">
+			<p id="notice"><%= notice %></p>
+      <p><%= @item.title %></p>
+			<p><%= @item.description %></p>
 
-<p>
-  <strong>Price:</strong>
-  <%= @item.price %>
-</p>
+		  <div class="btn btn-success"><%= @item.price %></div>
 
-<p>
-  <strong>Image url:</strong>
-  <%= @item.image_url %>
-</p>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6"></div>
+		<div class="col-md-3">
+			<div class="dropdown">
+			  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			    Quantity
+			  </button>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+			  <select class="selectpicker" data-style="select-with-transition btn btn-block" data-size="7">
+		      <% 5.times do |i| %>
+		        <option value="<%= i + 1 %>"><%= i + 1 %></option>
+				  <% end %>
+				</select>
+				
+			  <select class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+			  </select>
+			</div>
+		</div>
+		<div class="col-md-3">
+			<button class="btn btn-primary">Add to cart</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md text-right">
+			<%= link_to 'Edit', edit_item_path(@item) %> |
+			<%= link_to 'Back', items_path %>
+		</div>
+	</div>
+
+	
+</div>
+ 
