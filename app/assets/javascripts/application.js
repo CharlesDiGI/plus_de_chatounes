@@ -16,6 +16,5 @@
 //= require core/bootstrap.min
 //= require core/jquery.3.2.1.min
 //= require core/popper.min
-//= require plugins/bootstrap-selectpicker.js
 //= require now-ui-kit
 //= require_tree .
