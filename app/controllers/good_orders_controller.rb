@@ -12,9 +12,10 @@ class GoodOrdersController < ApplicationController
   end
 
   def create
-    @order = GoodOrder.new(order_params)
-    @current_cart.join_table_line_items.each do |item|
-      @order.line_items << item
+    @order = GoodOrder.new #(order_params)
+    @current_cart.items.each do |item|
+    	puts item.title
+      @order.items << item
       item.cart_id = nil
     end
     @order.save
@@ -26,7 +27,7 @@ class GoodOrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:name, :email, :address, :pay_method)
+    params.require(:order) #.permit(:name, :email, :address, :pay_method)
   end
 
 end
