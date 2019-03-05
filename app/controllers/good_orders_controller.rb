@@ -4,7 +4,7 @@ class GoodOrdersController < ApplicationController
   end
 
   def index
-    @orders = GooddOrder.all
+    @orders = GoodOrder.all
   end
 
   def show
@@ -12,14 +12,15 @@ class GoodOrdersController < ApplicationController
   end
 
   def create
-    @order = GoodOrder.new #(order_params)
+    @order = GoodOrder.new(user: current_user) #(order_params)
+    puts @order
+    # @order.items = []
     @current_cart.items.each do |item|
-    	puts item.title
       @order.items << item
-      item.cart_id = nil
+      # item.cart_id = nil
     end
     @order.save
-    Cart.destroy(session[:cart_id])
+    @current_cart.destroy
     session[:cart_id] = nil
     redirect_to root_path
   end
