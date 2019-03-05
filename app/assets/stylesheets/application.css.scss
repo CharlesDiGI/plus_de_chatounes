@@ -38,3 +38,24 @@ a:hover {
   background-color: transparent;
 }
 
+.img_index {
+  width: 400px;
+  height: auto;
+}
+
+.card-index {
+  height: 390px;
+  box-shadow: none;
+  display: inline-block;
+  margin: 60px auto;
+  border-radius: 4px;
+}
+
+.card-index:hover {
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+  -webkit-transition:  box-shadow .6s ease-in;
+}
+
+.title-card {
+  margin-top: 0;
+}

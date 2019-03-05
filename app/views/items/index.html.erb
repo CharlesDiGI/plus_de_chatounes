@@ -10,38 +10,27 @@
         <div class="main">
             <div class="section">
                 <div class="container">
-                    <h2 class="section-title">Find what you need</h2>
-                        <div class="col-md-9">
+                    <h2 class="section-title">Toutes nos images disponibles</h2>
+                        <div class="col-md-12">
                             <div class="row">
                               <% @items.each do |item| %>
                                 <div class="col-lg-4 col-md-6">
-                                    <div class="card card-product card-plain">
-                                        <div class="card-image">
-                                            <a href="#">
-                                                <%= image_tag(item.image_url) %>
-                                            </a>
+                                    <div class="card-index">
+                                        <div>
+                                            <%= link_to image_tag(item.image_url), item_path(item.id) %> 
                                         </div>
                                         <div class="card-body">
-                                            <a href="#">
-                                                <h4 class="card-title"><%= item.title %></h4>
-                                            </a>
+                                            <h4 class="title-card"><%= item.title %></h4>
                                             <p class="card-description">
                                                 <%= item.description %>
-                                            </p>
-                                            <div class="card-footer">
-                                                <div class="price-container">
-                                                    <span class="price"> &euro; <%= item.price %></span>
-                                                </div>
-                                                
-                                            </div>
+                                            </p>                                       
+                                            <div class="price-container">
+                                                <span class="price"> &euro; <%= item.price %></span>
+                                            </div> 
                                         </div>
                                     </div>
-                                    <!-- end card -->
                                 </div>
                               <% end %>
-                                <div class="col-md-3 ml-auto mr-auto">
-                                    <button rel="tooltip" class="btn btn-primary btn-round">Voir plus</button>
-                                </div>
                             </div>
                         </div>
                     </div>
