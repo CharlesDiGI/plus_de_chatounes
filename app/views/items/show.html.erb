@@ -1,37 +1,41 @@
 <div class="container">
 
-	<div class="row">
-		<div class="col-md-4 border">
+  <div class="row">
+  	<div class="col-md-12 mt-2">
+  		<h2 class="title"><%= @item.title %></h2>
+  	</div>
+  </div>
+	
+	<div class="row mb-3">
+		<div class="col-md-4 mr-auto border">
 	  	<img src="<%= @item.image_url %>">
 		</div>
 
-		<div class="col-md-8 border">
+		<div class="col-md-7 border">
 			<p id="notice"><%= notice %></p>
-      <p><%= @item.title %></p>
 			<p><%= @item.description %></p>
-
-		  <div class="btn btn-success"><%= @item.price %></div>
-
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-md-6"></div>
-		<div class="col-md-3">
-
-		<select class="selectpicker " data-style="select-with-transition btn-secondary btn-round" title="Quantity" data-size="7">
-		  <% 5.times do |i| %>
-			  <option value="<%= i + 1 %>"><%= i + 1 %></option>
-			<% end %>
-		</select>
-
+	<div class="row align-items-center ">
+		<div class="col-md-3 ml-auto border">
+			<select class="selectpicker " data-style="select-with-transition btn-secondary btn-round" title="Quantity" data-size="7">
+			  <% 5.times do |i| %>
+				  <option value="<%= i + 1 %>"><%= i + 1 %></option>
+				<% end %>
+			</select>
 		</div>
-		<div class="col-md-3">
-			<button class="btn btn-primary">Add to cart</button>
+
+		<div class="col-md-2 text-center border">
+			<span class="title"><%= @item.price %> €</span>
+		</div>
+
+		<div class="col-md-2 border">
+			<button class="btn btn-lg btn-primary">Add to cart</button>
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row mt-5">
 		<div class="col-md text-right">
 			<%= link_to 'Edit', edit_item_path(@item) %> |
 			<%= link_to 'Back', items_path %>
