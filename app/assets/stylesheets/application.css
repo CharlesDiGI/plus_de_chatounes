@@ -16,7 +16,6 @@
  *= require now-ui-kit
 
  */
- 
 /* début - code pour coller le footer en bas de page si le contenu ne prendpas 100% de la hauteur */
 html,
 body {
