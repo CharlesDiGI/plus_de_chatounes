@@ -63,3 +63,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'faker'
 gem 'devise'
 gem 'table_print'
+gem 'font-awesome-sass', '~> 5.6.1'
