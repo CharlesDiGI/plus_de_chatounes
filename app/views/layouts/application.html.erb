@@ -37,8 +37,11 @@
             <span class="navbar-toggler-bar bar3"></span>
           </button>
         </div>
-        <div class="btn">
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        <div class="btn btn-simple btn-sm btn-round">
+          <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+        </div>
+        <div class="btn btn-simple btn-sm btn-round">
+          <%= link_to "Log in", new_user_session_path, method: :get %>
         </div>
         <div class="collapse navbar-collapse" data-nav-image="../assets/img/blurred-image-1.jpg" data-color="orange">
           <ul class="navbar-nav ml-auto">
@@ -136,7 +139,7 @@
       </div>
     </nav>
     <%= yield %>
-    <footer class="footer footer-default ">
+    <footer class="footer">
       <div class="container">
         <nav>
           <ul>
