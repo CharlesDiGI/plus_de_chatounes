@@ -12,7 +12,7 @@ Item.destroy_all
 20.times do |i|
 	my_item = Item.create(title: Faker::Games::Pokemon.name,
 												description: Faker::Creature::Cat.breed,
-												price: 0.0,
+												price: 5.0,
 												image_url: "http://127.0.0.1:3000/assets/chatons/#{i}.jpg")
 end
 
