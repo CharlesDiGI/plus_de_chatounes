@@ -27,7 +27,8 @@
 
 		<div class="col-md-2">
 			<button class="btn btn-lg btn-primary">Add to cart</button>
-			<%= button_to "Add to cart", join_table_cart_items_path(:item_id => @item.id), method: :post %>
+			<%= button_to "Add to cart", item_join_table_cart_items_path(:item_id => @item.id), method: :post %>
+			<%= button_to "Create order", good_orders_path, method: :post %>
 		</div>
 	</div>
 

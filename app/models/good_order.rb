@@ -1,4 +1,6 @@
 class GoodOrder < ApplicationRecord
 	belongs_to :user
-	has_many :carts
+	belongs_to :cart
+	
+
 end
