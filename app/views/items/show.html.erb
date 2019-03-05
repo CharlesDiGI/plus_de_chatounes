@@ -1,43 +1,43 @@
 <div class="container">
 
-	<div class="row">
-		<div class="col-md-4 border">
+  <div class="row">
+  	<div class="col mt-2">
+  		<h2 class="title"><%= @item.title %></h2>
+			<p id="notice"><%= notice %></p>
+  	</div>
+  </div>
+	
+	<div class="row mb-3">
+		<div class="col-md-5 mr-auto">
 	  	<img src="<%= @item.image_url %>">
 		</div>
 
-		<div class="col-md-8 border">
-			<p id="notice"><%= notice %></p>
-      <p><%= @item.title %></p>
+		<div class="col-md-7">
+			<h5 class="category">Description</h5>
 			<p><%= @item.description %></p>
-
-		  <div class="btn btn-success"><%= @item.price %></div>
-
 		</div>
 	</div>
 	
-	<div class="row">
-		<div class="col-md-6"></div>
-		<div class="col-md-3">
+	<div class="row align-items-center ">
 
-		<select class="selectpicker " data-style="select-with-transition btn-secondary btn-round" title="Quantity" data-size="7">
-		  <% 5.times do |i| %>
-			  <option value="<%= i + 1 %>"><%= i + 1 %></option>
-			<% end %>
-		</select>
 
+		<div class="col-md-2 ml-auto text-center">
+			<span class="title"><%= @item.price %> €</span>
 		</div>
-		<div class="col-md-3">
-			<button class="btn btn-primary">Add to cart</button>
+
+		<div class="col-md-2">
+			<button class="btn btn-lg btn-primary">Add to cart</button>
+			<%= button_to "Add to cart", item_join_table_cart_items_path(:item_id => @item.id), method: :post %>
+			<%= button_to "Create order", good_orders_path, method: :post %>
 		</div>
 	</div>
 
-	<div class="row">
+	<div class="row mt-5">
 		<div class="col-md text-right">
 			<%= link_to 'Edit', edit_item_path(@item) %> |
 			<%= link_to 'Back', items_path %>
 		</div>
 	</div>
 
-	
 </div>
  

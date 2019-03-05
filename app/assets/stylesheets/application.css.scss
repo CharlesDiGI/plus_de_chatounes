@@ -16,7 +16,11 @@
  *= require now-ui-kit
 
  */
-/* début - code pour coller le footer en bas de page si le contenu ne prendpas 100% de la hauteur */
+
+@import "font-awesome-sprockets";
+@import "font-awesome";
+ 
+
 html,
 body {
   height: 100%;
@@ -29,4 +33,9 @@ body {
 #sticky-footer {
   flex-shrink: none;
 }
-/* fin */
+
+a:hover {
+  background-color: transparent;
+  color: red;
+}
+
