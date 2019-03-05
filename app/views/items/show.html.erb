@@ -1,36 +1,31 @@
 <div class="container">
 
   <div class="row">
-  	<div class="col-md-12 mt-2">
+  	<div class="col mt-2">
   		<h2 class="title"><%= @item.title %></h2>
+			<p id="notice"><%= notice %></p>
   	</div>
   </div>
 	
 	<div class="row mb-3">
-		<div class="col-md-4 mr-auto border">
+		<div class="col-md-5 mr-auto">
 	  	<img src="<%= @item.image_url %>">
 		</div>
 
-		<div class="col-md-7 border">
-			<p id="notice"><%= notice %></p>
+		<div class="col-md-7">
+			<h5 class="category">Description</h5>
 			<p><%= @item.description %></p>
 		</div>
 	</div>
 	
 	<div class="row align-items-center ">
-		<div class="col-md-3 ml-auto border">
-			<select class="selectpicker " data-style="select-with-transition btn-secondary btn-round" title="Quantity" data-size="7">
-			  <% 5.times do |i| %>
-				  <option value="<%= i + 1 %>"><%= i + 1 %></option>
-				<% end %>
-			</select>
-		</div>
 
-		<div class="col-md-2 text-center border">
+
+		<div class="col-md-2 ml-auto text-center">
 			<span class="title"><%= @item.price %> €</span>
 		</div>
 
-		<div class="col-md-2 border">
+		<div class="col-md-2">
 			<button class="btn btn-lg btn-primary">Add to cart</button>
 			<%= button_to "Add to cart", join_table_cart_items_path(:item_id => @item.id), method: :post %>
 		</div>
@@ -43,6 +38,5 @@
 		</div>
 	</div>
 
-	
 </div>
  
