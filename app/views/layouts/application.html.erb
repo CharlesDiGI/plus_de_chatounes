@@ -13,7 +13,7 @@
       <div class="container">
 
         <div class="navbar-translate">
-          <a class="navbar-brand" href="http://demos.creative-tim.com/marketplace/now-ui-kit-pro/presentation.html" rel="tooltip" title="Designed and Coded by fantastic four" data-placement="bottom">
+          <a class="navbar-brand" href="<%= root_path %>" rel="tooltip" title="Designed and Coded by fantastic four" data-placement="bottom">
             Plus de chatounes
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,42 +62,11 @@
       <%= yield %>
     </div>
 
-    <footer id="sticky-footer" class="py-4 footer footer-default">
-      <div class="container">
-        <nav>
-          <ul>
-            <li>
-              <a href="#creative">
-                Creative Tim
-              </a>
-            </li>
-            <li>
-              <a href="#creative">
-                About Us
-              </a>
-            </li>
-            <li>
-              <a href="#creative">
-                Blog
-              </a>
-            </li>
-            <li>
-              <a href="#creative">
-                License
-              </a>
-            </li>
-          </ul>
-        </nav>
-        <div class="copyright">
-          &copy;
-          <script>
-            document.write(new Date().getFullYear())
-          </script>, Designed by
-          <a href="http://www.invisionapp.com">Invision</a>. Coded by
-          <a href="https://www.creative-tim.com">Creative Tim</a>.
-        </div>
-      </div>
-    </footer>
+    <% current_uri = request.env['PATH_INFO'] %>
+    <% if current_uri != "/users/sign_up" && current_uri != "/users/sign_in"  %>
+      <%= render "/layouts/footer" %>
+    <% end %>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
 
   </body>
