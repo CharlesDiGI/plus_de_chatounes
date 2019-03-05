@@ -1,25 +1,24 @@
-class GoodOrdersController < ApplicationController
+class OrdersController < ApplicationController
   def new
-    @order = GoodOrder.new
+    @order = Order.new
   end
 
   def index
-    @orders = GoodOrder.all
+    @orders = Order.all
   end
 
   def show
-    @order = GoodOrder.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def create
-    @order = GoodOrder.new(user: current_user) #(order_params)
-    puts @order
+    @order = Order.create(user: current_user) #(order_params)
     # @order.items = []
     @current_cart.items.each do |item|
-      @order.items << item
+      OrderItem.create(item: item, order: @order)
       # item.cart_id = nil
     end
-    @order.save
+
     @current_cart.destroy
     session[:cart_id] = nil
     redirect_to root_path
