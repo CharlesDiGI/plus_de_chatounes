@@ -16,7 +16,7 @@ class JoinTableCartItemsController < ApplicationController
   
     # Save and redirect to cart show path
     @join_table_cart_item.save
-    redirect_to root_path
+    redirect_to cart_path(@current_cart)
   end
 
   def destroy
