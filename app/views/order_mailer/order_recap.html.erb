@@ -11,7 +11,11 @@
     <p>
       Et voilà ta commande: 
      
-     <%= image_tag attachments.inline['order.jpg'], alt: 'My Order', class: 'photos' %>
+     <% @items.each do |item| %>
+        <%= item.title %>
+        <%= image_tag(item.image.attached? ? attachments["image"+item.id.to_s+".jpg"].url : attachments['order.jpg'].url) %>
+
+         <%end %>
 
     </p>
     <p>

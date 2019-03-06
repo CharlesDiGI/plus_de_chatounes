@@ -1,10 +1,14 @@
 Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !
 ==========================================================
  
-        <!-- Tu as passé commandé de la photo <%= item.title %> ? Très bon choix -->
 
- Et voilà ta commande: 
-      attachments.inline['order.jpg']
+  Et voilà ta commande: 
+     
+       <% @items.each do |item| %>
+        <%= item.title %>
+        <%= image_tag(item.image.attached? ? attachments["image"+item.id.to_s+".jpg"].url : attachments['order.jpg'].url) %>
+
+         <%end %>
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  

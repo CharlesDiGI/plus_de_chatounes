@@ -2,27 +2,18 @@ class OrderMailer < ApplicationMailer
 
   def order_recap(order)
     @order = order
-    @order_item = OrderItem.where(order_id: order.id)
-    @item = @order_item.id.items.first.item
-    # @item = @order_item.item
+    @items = @order.items
     @user = @order.user
     @url = "https://les-4-chatons-fantastiques.herokuapp.com/sign_in"
 
-puts "*" * 50
-puts @order.id
-puts @order_item
-puts @item
-# puts @item.title
-puts @user.first_name
-puts "*" * 50
-    # @items.each do |item|
-    #   image_tag attachments['image.jpg'].url, alt: 'My Photo', class: 'photos'
-    # end
-    # @items.each { |e|
-      # attachments.inline['order.jpg'] = image_tag(item.image)
-    # }
+    @items.each { |item|
+      attachments.inline["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
+    }
+    # image_tag(item.image)
+    # de 42 à 61
 
-    attachments.inline['0.jpg'] = File.read('app/assets/images/chatons/0.jpg')
+    # attachments.inline['0.jpg'] = File.read('app/assets/images/chatons/0.jpg')
+    # <%= image_tag attachments['image.jpg'].url, alt: 'My Photo', class: 'photos' %>
 
     mail(
       from: "charles.digiampietro@gmail.com",
@@ -31,9 +22,6 @@ puts "*" * 50
       delivery_method_options: { version: 'v3.1' }
     )
 
-    # <% @items.each do |item| %>
-    #      <%= image_tag attachments['image.jpg'].url, alt: 'My Photo', class: 'photos' %>
-    #      <%end %>
   end
 
   def inform_admin(order)

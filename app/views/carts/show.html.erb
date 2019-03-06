@@ -37,6 +37,7 @@
 								<!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
 								Passer commande
 								</button>-->
+								<%= button_to "Fais le café pour envoyer un mail Order",  orders_path , method: :post %>
 
 								<!-- BOUTON DE PURCHASAGE -->
 								 <% if @sum > 0 %>
