@@ -5,145 +5,52 @@
                 <table class="table table-shopping">
                     <thead class="">
                         <tr><th class="text-center"></th>
-                            <th>Product</th>
-                            <th>Color</th>
-                            <th>Size</th>
-                            <th class="text-right">Price</th>
-                            <th class="text-right">Qty</th>
-                            <th class="text-right">Amount</th>
+                            <th>Produit</th>
+                            <th>Description</th>
+                            <th class="text-right">Prix</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <% @cart.join_table_cart_items.each do |cart_item| %>
                         <tr>
                             <td>
                                 <div class="img-container">
-                                    <img src="./assets/img//saint-laurent.jpg" alt="...">
+                                    <%= image_tag(cart_item.item.image_url) %>
                                 </div>
                             </td>
                             <td class="td-name">
-                                <a href="#jacket">Suede Biker Jacket</a>
-                                <br><small>by Saint Laurent</small>
+                                <%= cart_item.item.title %>
                             </td>
-                            <td>
-                                Black
-                            </td>
-                            <td>
-                                M
+                            <td class="td-name">
+                                <%= cart_item.item.description %>
                             </td>
                             <td class="td-number">
-                                <small>€</small>3,390
-                            </td>
-                            <td class="td-number">
-                                1
-                                <div class="btn-group">
-                                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"                ></i> </button>
-                                </div>
-                            </td>
-                            <td class="td-number">
-                                <small>€</small>549
+                                <%= cart_item.item.price %><small>€</small>
                             </td>
                             <td class="td-actions">
-                                <button type="button" rel="tooltip" data-placement="left" title="" class="btn               btn-neutral" data-original-title="Remove item">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                               </button>
+                                <!--<button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
+                                    <i class="fas fa-times"></i>
+                               </button>-->
+                               <%= button_to "X", item_join_table_cart_item_path(item_id: cart_item.item, id: cart_item), {method: :delete, :class => "btn btn-neutral"} %>
                             </td>
                         </tr>
-
-        <tr>
-            <td>
-                <div class="img-container">
-                    <img src="./assets/img//balmain.jpg" alt="...">
-                </div>
-            </td>
-            <td class="td-name">
-                <a href="#pants">Jersey T-Shirt</a>
-                <br><small>by Balmain</small>
-            </td>
-            <td>
-                Black
-            </td>
-            <td>
-                M
-            </td>
-            <td class="td-number">
-                <small>€</small>499
-            </td>
-            <td class="td-number">
-                2
-                <div class="btn-group">
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
-                </div>
-            </td>
-            <td class="td-number">
-                <small>€</small>998
-            </td>
-            <td class="td-actions">
-                <button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-                <div class="img-container">
-                    <img src="./assets/img//prada.jpg" alt="...">
-                </div>
-            </td>
-            <td class="td-name">
-                <a href="#nothing">Slim-Fit Swim Short</a>
-                <br><small>by Prada</small>
-            </td>
-            <td>
-                Red
-            </td>
-            <td>
-                M
-            </td>
-            <td class="td-number">
-                <small>€</small>200
-            </td>
-            <td class="td-number">
-                1
-                <div class="btn-group">
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
-                </div>
-            </td>
-            <td class="td-number">
-                <small>€</small>799
-            </td>
-            <td class="td-actions">
-                <button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-            </td>
-        </tr>
-
-        <tr>
-            <td colspan="3">
-            </td>
-            <td class="td-total">
-                Total
-            </td>
-            <td class="td-price">
-                <small>€</small>2,346
-            </td>
-            <td colspan="3" class="text-right">
-
-                <button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
-
-                    Complete Purchase
-
-                    <i class="now-ui-icons arrows-1_minimal-right"></i>
-
-                </button>
-
-            </td>
-        </tr>
-
+                    <% end %>
+                        <tr>
+                            <td colspan="2">
+                            </td>
+                            <td class="td-total">
+                                Total
+                            </td>
+                            <td class="td-price">
+                                <small>€</small><%= @sum %>
+                            </td>
+                            <td colspan="3" class="text-right">
+                                <!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
+                                    Passer commande
+                                </button>-->
+                                <%= button_to "Passer commande", orders_path, {method: :post, :class => "btn btn-info btn-round"} %>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
