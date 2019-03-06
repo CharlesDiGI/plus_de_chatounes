@@ -5,7 +5,10 @@ Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !
         Tu as passé commandé de la photo <%= item.title %> ? Très bon choix
       <%end %>
 
-
+ Et voilà ta commande: 
+      <% @items.each do |item| %>
+      <%= image_tag(item.image) %>
+      <%end %>
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  

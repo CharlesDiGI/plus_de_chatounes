@@ -11,7 +11,11 @@
       <%end %>
     </p>
     <p>
-      
+      Et voilà ta commande: 
+      <% @items.each do |item| %>
+      <%= image_tag(item.image) %>
+      <%end %>
+
     </p>
     <p>
       Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
