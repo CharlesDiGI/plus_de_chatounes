@@ -17,11 +17,11 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="card-index">
                                         <div>
-                                            <%= link_to image_tag(item.image_url), item_path(item.id) %> 
+                                            <%= link_to image_tag(item.image), item_path(item.id) %> 
                                         </div>
                                         <div class="card-body">
                                             <h4 class="title-card"><%= item.title %></h4>
-                                            <p class="card-description">
+                                            <p class="description-card">
                                                 <%= item.description %>
                                             </p>                                       
                                             <div class="price-container">
