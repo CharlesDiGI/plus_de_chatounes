@@ -17,12 +17,13 @@
 //= require core/jquery.3.2.1.min
 //= require core/popper.min
 
+//= require plugins/moment.min
+//= require plugins/bootstrap-datetimepicker.min
+//= require plugins/bootstrap-selectpicker
 //= require plugins/bootstrap-switch
 //= require plugins/bootstrap-tagsinput
-//= require plugins/bootstrap-selectpicker
 //= require plugins/jasny-bootstrap.min
 //= require plugins/nouislider.min
-//= require plugins/bootstrap-datetimepicker.min
 
 //= require now-ui-kit
 //= require_tree .
