@@ -1,59 +1,76 @@
 <div class="col-md-12"> 
-    <div class="card card-plain">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-shopping">
-                    <thead class="">
-                        <tr><th class="text-center"></th>
-                            <th>Produit</th>
-                            <th>Description</th>
-                            <th class="text-right">Prix</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    <% @cart.join_table_cart_items.each do |cart_item| %>
-                        <tr>
-                            <td>
-                                <div class="img-container">
-                                    <%= image_tag(cart_item.item.image_url) %>
-                                </div>
-                            </td>
-                            <td class="td-name">
-                                <%= cart_item.item.title %>
-                            </td>
-                            <td class="td-name">
-                                <%= cart_item.item.description %>
-                            </td>
-                            <td class="td-number">
-                                <%= cart_item.item.price %><small>€</small>
-                            </td>
-                            <td class="td-actions">
-                                <!--<button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
-                                    <i class="fas fa-times"></i>
-                               </button>-->
-                               <%= button_to "X", item_join_table_cart_item_path(item_id: cart_item.item, id: cart_item), {method: :delete, :class => "btn btn-neutral"} %>
-                            </td>
-                        </tr>
-                    <% end %>
-                        <tr>
-                            <td colspan="2">
-                            </td>
-                            <td class="td-total">
-                                Total
-                            </td>
-                            <td class="td-price">
-                                <small>€</small><%= @sum %>
-                            </td>
-                            <td colspan="3" class="text-right">
-                                <!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
-                                    Passer commande
-                                </button>-->
-                                <%= button_to "Passer commande", orders_path, {method: :post, :class => "btn btn-info btn-round"} %>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+	<div class="card card-plain">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-shopping">
+					<thead class="">
+						<tr><th class="text-center"></th>
+							<th>Produit</th>
+							<th>Description</th>
+							<th class="text-right">Prix</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @cart.join_table_cart_items.each do |cart_item| %>
+						<tr>
+							<td>
+							<div class="img-container">
+							<%= image_tag(cart_item.item.image) %>
+							</div>
+							</td>
+							<td class="td-name"><%= cart_item.item.title %></td>
+							<td class="td-name"><%= cart_item.item.description %></td>
+							<td class="td-number"><%= cart_item.item.price %><small>€</small></td>
+							<td class="td-actions">
+							<!--<button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
+							<i class="fas fa-times"></i>
+							</button>-->
+							<%= button_to "X", item_join_table_cart_item_path(item_id: cart_item.item, id: cart_item), {method: :delete, :class => "btn btn-neutral"} %>
+							</td>
+						</tr>
+						<% end %>
+						<tr>
+							<td colspan="2"></td>
+							<td class="td-total">Total</td>
+							<td class="td-price"><small>€</small><%= @sum %></td>
+							<td colspan="3" class="text-right">
+								<!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
+								Passer commande
+								</button>-->
+
+								<!-- BOUTON DE PURCHASAGE -->
+								 <% if @sum > 0 %>
+									<%= form_tag charges_path do %> 
+										<article> 
+											<% if flash[:error].present? %> 
+												<div id="error_explanation">  
+													<p><%= flash[:error] %></p> 
+												</div>    
+											<% end %>   
+										</article>    
+
+										<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
+
+										<script  
+											src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+											data-key="<%= ENV['PUBLISHABLE_KEY'] %>"    
+											data-amount="<%= @sum * 100 %>"   
+											data-name="Demo Site"   
+											data-description="Example charge"   
+											data-image="https://stripe.com/img/documentation/checkout/marketplace.png"  
+											data-locale="auto"  
+											data-currency="eur">    
+										</script> 
+
+
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>Numéro de carte : 4242 4242 4242 4242</p>
+			</div>
+		</div>
+	</div>
 </div>
