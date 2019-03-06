@@ -20,8 +20,9 @@ class OrdersController < ApplicationController
       # item.cart_id = nil
     end
 
-    OrderMailer.order_recap(@order).deliver_now 
-    OrderMailer.inform_admin(@order).deliver_now  
+    # send emails after creation of Order and OrderItem
+    OrderMailer.order_recap(@order).deliver_now
+    OrderMailer.inform_admin(@order).deliver_now
 
     @current_cart.destroy
     session[:cart_id] = nil

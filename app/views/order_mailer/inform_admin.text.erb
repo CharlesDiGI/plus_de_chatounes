@@ -1,8 +1,9 @@
 Nouvelle commande de la part de: <%= @user.first_name %> <%= @user.last_name %> !
 ==========================================================
  
- <% @items.each do |item| %>
-        Cet utilisateur vient de passer commande de: <%= item.title %> 
-      <%end %>
+       Cet utilisateur vient de passer commande de:
+ 		<% @items.each do |item| %>
+        	<%= item.title %>
+      	<%end %>
 
 Voilà, c'est dit

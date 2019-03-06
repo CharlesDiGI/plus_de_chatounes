@@ -6,21 +6,26 @@
   <body>
     <h1> Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !</h1>
     <p>
-
+      Et voilà ta commande: <br>
     </p>
+    <table style="width:100%;border:1px solid black;text-align:left;border-collapse:collapse;">
+      <tr style="border:1px solid black;text-align:left;border-collapse:collapse;">
+        <th>Produit</th>
+        <th>Description</th>
+        <th>Prix</th>
+      </tr>
+      <% @items.each do |item| %>
+        <tr style="border:1px solid black;text-align:left;border-collapse:collapse;">
+          <td><strong><%= item.title %></strong></td>
+          <td><%= item.description %></td>
+          <td><%= item.price %></td>
+        </tr>
+      <%end %>
+    </table>
     <p>
-      Et voilà ta commande: 
-     
-     <% @items.each do |item| %>
-        <%= item.title %>
-        <%= image_tag(item.image.attached? ? attachments["image"+item.id.to_s+".jpg"].url : attachments['order.jpg'].url) %>
-
-         <%end %>
-
-    </p>
-    <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+      Pour accéder à ton espace client, connecte-toi à : <%= link_to "ton profil", new_user_session_url %>
     </p>
     <p> Reviens vite nous voir sur les 4 chatons fantastiques ! </p>
+    <p>Bisous</p>
   </body>
 </html>

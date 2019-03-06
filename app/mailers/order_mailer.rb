@@ -4,16 +4,28 @@ class OrderMailer < ApplicationMailer
     @order = order
     @items = @order.items
     @user = @order.user
-    @url = "https://les-4-chatons-fantastiques.herokuapp.com/sign_in"
+    @url =  new_user_session_url
 
+    # # each loop for inline attachement
+    # @items.each { |item|
+    #   attachments.inline["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
+    # }
+
+    # attachement but not inline
     @items.each { |item|
-      attachments.inline["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
+      attachments["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
     }
-    # image_tag(item.image)
-    # de 42 à 61
 
     # attachments.inline['0.jpg'] = File.read('app/assets/images/chatons/0.jpg')
     # <%= image_tag attachments['image.jpg'].url, alt: 'My Photo', class: 'photos' %>
+
+
+# # inline attachements for the view files
+# <% @items.each do |item| %>
+#         <%= item.title %>
+#         <%= image_tag(item.image.attached? ? attachments["image"+item.id.to_s+".jpg"].url : attachments['order.jpg'].url) %>
+
+#          <%end %>
 
     mail(
       from: "charles.digiampietro@gmail.com",
