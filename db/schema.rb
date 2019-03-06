@@ -40,16 +40,14 @@ ActiveRecord::Schema.define(version: 2019_03_06_094717) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "good_order_id"
+    t.index ["good_order_id"], name: "index_carts_on_good_order_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "good_orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_good_orders_on_cart_id"
-    t.index ["user_id"], name: "index_good_orders_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -94,4 +92,5 @@ ActiveRecord::Schema.define(version: 2019_03_06_094717) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "carts", "good_orders"
 end
