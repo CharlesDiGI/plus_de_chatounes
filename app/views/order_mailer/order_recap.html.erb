@@ -6,15 +6,12 @@
   <body>
     <h1> Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !</h1>
     <p>
-      <% @items.each do |item| %>
-        Tu as passé commandé de la photo <%= item.title %> ? Très bon choix
-      <%end %>
+
     </p>
     <p>
       Et voilà ta commande: 
-      <% @items.each do |item| %>
-      <%= image_tag(item.image) %>
-      <%end %>
+     
+     <%= image_tag attachments.inline['order.jpg'], alt: 'My Order', class: 'photos' %>
 
     </p>
     <p>
