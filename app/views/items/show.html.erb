@@ -26,9 +26,10 @@
 		</div>
 
 		<div class="col-md-2">
-			<button class="btn btn-lg btn-primary">Add to cart</button>
-			<%= button_to "Add to cart", item_join_table_cart_items_path(@item.id), method: :post %>
-			<%= button_to "Create order", orders_path, method: :post %>
+			<% if logged_in? %>
+				<%= button_to "Ajouter au panier", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary"} %>
+				<%= button_to "Voir mon panier", cart_path(@current_cart), :class => "btn btn-lg btn-primary" %>
+			<% end %>
 		</div>
 	</div>
 
