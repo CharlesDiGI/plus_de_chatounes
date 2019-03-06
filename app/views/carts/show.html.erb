@@ -133,13 +133,30 @@
             </td>
             <td colspan="3" class="text-right">
 
-                <button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
+            <!-- BOUTON DE PURCHASAGE -->
+            <%= form_tag charges_path do %>
+              <article>
+                <% if flash[:error].present? %>
+                  <div id="error_explanation">
+                    <p><%= flash[:error] %></p>
+                  </div>
+                <% end %>
+              </article>
 
-                    Complete Purchase
+              <input type="text" name="cart_amount" value="7000" hidden>
+              
+              <script
+                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
+                data-amount="<%= 5000 %>"
+                data-name="Demo Site"
+                data-description="Example charge"
+                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+                data-locale="auto"
+                data-currency="eur">
+              </script>
+            <% end %>
 
-                    <i class="now-ui-icons arrows-1_minimal-right"></i>
-
-                </button>
 
             </td>
         </tr>
