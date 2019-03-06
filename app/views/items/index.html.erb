@@ -1,14 +1,17 @@
 <div class="ecommerce-page">
     <div class="wrapper">
-        <div id="carouselExampleIndicators" class="carousel slide">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class=""></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2" class=""></li>
-            </ol>
-            
+        <div class="banner">
+            <div class='img-banner'>
+                <%= image_tag("banner.jpg") %>
+            </div>
+            <div class='text-banner'>
+                <h3 class='txt-ban-prim'>Fan de chatoune ?</h3>
+                <h5 class='txt-ban-sec'>Viens regarder les différentes images que nous proposons !</h5></br>
+                <button class='btn btn-secondary' id='btn-banner'>Nos images disponibles</button>
+            </div>
+        </div> 
         <div class="main">
-            <div class="section">
+            <div class="section" id='img-ancre'>
                 <div class="container">
                     <h2 class="section-title">Toutes nos images disponibles</h2>
                         <div class="col-md-12">
