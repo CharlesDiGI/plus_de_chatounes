@@ -1,4 +1,5 @@
 class OrdersController < ApplicationController
+
   def new
     @order = Order.new
   end
@@ -19,6 +20,10 @@ class OrdersController < ApplicationController
       # item.cart_id = nil
     end
 
+    # send emails after creation of Order and OrderItem
+    OrderMailer.order_recap(@order).deliver_now
+    OrderMailer.inform_admin(@order).deliver_now
+
     @current_cart.destroy
     session[:cart_id] = nil
     redirect_to root_path
@@ -29,5 +34,6 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order) #.permit(:name, :email, :address, :pay_method)
   end
+
 
 end
