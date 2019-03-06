@@ -22,7 +22,7 @@ class JoinTableCartItemsController < ApplicationController
   def destroy
     @join_table_cart_item = JoinTableCartItem.find(params[:id])
     @join_table_cart_item.destroy
-    redirect_to cart_path(@current_cart)
+    redirect_to cart_path(@current_cart.id)
   end
   
   private
