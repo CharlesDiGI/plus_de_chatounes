@@ -10,10 +10,12 @@ require 'faker'
 Item.destroy_all
 
 20.times do |i|
-	my_item = Item.create(title: Faker::Games::Pokemon.name,
-												description: Faker::TvShows::RickAndMorty.quote,
-												price: 5.0,
-												image_url: "http://127.0.0.1:3000/assets/chatons/#{i}.jpg")
+	item = Item.create!(
+					title: Faker::Games::Pokemon.name,
+					description: Faker::Lorem.paragraph_by_chars(60, false),
+					price: 5.0)
+	item.image.attach(io: File.open("app/assets/images/chatons/#{i}.jpg"), filename: "#{i}.jpg")
+
 end
 
 puts "rails db:seed complete!"
