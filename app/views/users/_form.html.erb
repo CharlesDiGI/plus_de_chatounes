@@ -11,17 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+  <div class="row justify-content-center">
+    <div class="field">
+      <%= form.label :first_name, :class => "" %>
+      <%= form.text_field :first_name, :class => "form-control" %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+  <div class="row justify-content-center">
+    <div class="field">
+      <%= form.label :last_name, :class => "" %>
+      <%= form.text_field :last_name, :class => "form-control" %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row actions justify-content-center">
+    <%= form.submit :class => "btn btn-success btn-sm" %>
   </div>
 <% end %>
