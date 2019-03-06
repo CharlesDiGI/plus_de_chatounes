@@ -6,7 +6,9 @@
   <body>
     <h1> Nouvelle commande de la part de: <%= @user.first_name %> <%= @user.last_name %> !</h1>
     <p>
-     Cet utilisateur vient de passer commande de: <%= @order.title %> 
+       <% @items.each do |item| %>
+        Cet utilisateur vient de passer commande de: <%= item.title %> 
+      <%end %>
     </p>
     <p>
       Voilà, c'est dit

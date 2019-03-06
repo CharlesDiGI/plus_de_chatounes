@@ -2,6 +2,7 @@ class OrderMailer < ApplicationMailer
 	
 	def order_recap(order)
 		@order = order
+		@items = @order.items
 		@user = @order.user
 		@url = "https://les-4-chatons-fantastiques.herokuapp.com/sign_in"
 
@@ -16,6 +17,7 @@ class OrderMailer < ApplicationMailer
 
 	def inform_admin(order)
 		@order = order
+		@items = @order.items
 		@user = @order.user
 
 	mail(

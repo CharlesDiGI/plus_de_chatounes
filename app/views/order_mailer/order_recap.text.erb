@@ -1,9 +1,11 @@
 Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !
 ==========================================================
  
-Tu as passé commandé de la photo <%= @order.title %> ? Très bon choix
+<% @items.each do |item| %>
+        Tu as passé commandé de la photo <%= item.title %> ? Très bon choix
+      <%end %>
 
-La voici: <%= image_tag attachments['image.jpg'].url %>
+
 
 Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
  
