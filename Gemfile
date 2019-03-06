@@ -68,3 +68,4 @@ gem 'font-awesome-sass', '~> 5.6.1'
 gem 'dotenv-rails'
 gem 'mailjet'
 gem 'stripe'
+gem "aws-sdk-s3", require: false 
