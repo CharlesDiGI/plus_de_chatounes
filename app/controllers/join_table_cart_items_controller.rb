@@ -16,13 +16,13 @@ class JoinTableCartItemsController < ApplicationController
   
     # Save and redirect to cart show path
     @join_table_cart_item.save
-    redirect_to root_path
+    redirect_to cart_path(@current_cart)
   end
 
   def destroy
     @join_table_cart_item = JoinTableCartItem.find(params[:id])
     @join_table_cart_item.destroy
-    redirect_to cart_path(@current_cart)
+    redirect_to cart_path(@current_cart.id)
   end
   
   private

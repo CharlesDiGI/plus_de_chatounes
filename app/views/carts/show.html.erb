@@ -1,169 +1,77 @@
 <div class="col-md-12"> 
-    <div class="card card-plain">
-        <div class="card-body">
-            <div class="table-responsive">
-                <table class="table table-shopping">
-                    <thead class="">
-                        <tr><th class="text-center"></th>
-                            <th>Product</th>
-                            <th>Color</th>
-                            <th>Size</th>
-                            <th class="text-right">Price</th>
-                            <th class="text-right">Qty</th>
-                            <th class="text-right">Amount</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <div class="img-container">
-                                    <img src="./assets/img//saint-laurent.jpg" alt="...">
-                                </div>
-                            </td>
-                            <td class="td-name">
-                                <a href="#jacket">Suede Biker Jacket</a>
-                                <br><small>by Saint Laurent</small>
-                            </td>
-                            <td>
-                                Black
-                            </td>
-                            <td>
-                                M
-                            </td>
-                            <td class="td-number">
-                                <small>€</small>3,390
-                            </td>
-                            <td class="td-number">
-                                1
-                                <div class="btn-group">
-                                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"                ></i> </button>
-                                </div>
-                            </td>
-                            <td class="td-number">
-                                <small>€</small>549
-                            </td>
-                            <td class="td-actions">
-                                <button type="button" rel="tooltip" data-placement="left" title="" class="btn               btn-neutral" data-original-title="Remove item">
-                                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                               </button>
-                            </td>
-                        </tr>
+	<div class="card card-plain">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table table-shopping">
+					<thead class="">
+						<tr><th class="text-center"></th>
+							<th>Produit</th>
+							<th>Description</th>
+							<th class="text-right">Prix</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @cart.join_table_cart_items.each do |cart_item| %>
+						<tr>
+							<td>
+							<div class="img-container">
+							<%= image_tag(cart_item.item.image) %>
+							</div>
+							</td>
+							<td class="td-name"><%= cart_item.item.title %></td>
+							<td class="td-name"><%= cart_item.item.description %></td>
+							<td class="td-number"><%= cart_item.item.price %><small>€</small></td>
+							<td class="td-actions">
+							<!--<button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
+							<i class="fas fa-times"></i>
+							</button>-->
+							<%= button_to "X", item_join_table_cart_item_path(item_id: cart_item.item, id: cart_item), {method: :delete, :class => "btn btn-neutral"} %>
+							</td>
+						</tr>
+						<% end %>
+						<tr>
+							<td colspan="2"></td>
+							<td class="td-total">Total</td>
+							<td class="td-price"><small>€</small><%= @sum %></td>
+							<td colspan="3" class="text-right">
+								<!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
+								Passer commande
+								</button>-->
 
-        <tr>
-            <td>
-                <div class="img-container">
-                    <img src="./assets/img//balmain.jpg" alt="...">
-                </div>
-            </td>
-            <td class="td-name">
-                <a href="#pants">Jersey T-Shirt</a>
-                <br><small>by Balmain</small>
-            </td>
-            <td>
-                Black
-            </td>
-            <td>
-                M
-            </td>
-            <td class="td-number">
-                <small>€</small>499
-            </td>
-            <td class="td-number">
-                2
-                <div class="btn-group">
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
-                </div>
-            </td>
-            <td class="td-number">
-                <small>€</small>998
-            </td>
-            <td class="td-actions">
-                <button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-            </td>
-        </tr>
+								<!-- BOUTON DE PURCHASAGE -->
+								 <% if @sum > 0 %>
+									<%= form_tag charges_path do %> 
+										<article> 
+											<% if flash[:error].present? %> 
+												<div id="error_explanation">  
+													<p><%= flash[:error] %></p> 
+												</div>    
+											<% end %>   
+										</article>    
 
-        <tr>
-            <td>
-                <div class="img-container">
-                    <img src="./assets/img//prada.jpg" alt="...">
-                </div>
-            </td>
-            <td class="td-name">
-                <a href="#nothing">Slim-Fit Swim Short</a>
-                <br><small>by Prada</small>
-            </td>
-            <td>
-                Red
-            </td>
-            <td>
-                M
-            </td>
-            <td class="td-number">
-                <small>€</small>200
-            </td>
-            <td class="td-number">
-                1
-                <div class="btn-group">
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-delete"></i> </button>
-                    <button class="btn btn-info btn-sm"> <i class="now-ui-icons ui-1_simple-add"></i> </button>
-                </div>
-            </td>
-            <td class="td-number">
-                <small>€</small>799
-            </td>
-            <td class="td-actions">
-                <button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
-                    <i class="now-ui-icons ui-1_simple-remove"></i>
-                </button>
-            </td>
-        </tr>
+										<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
 
-        <tr>
-            <td colspan="3">
-            </td>
-            <td class="td-total">
-                Total
-            </td>
-            <td class="td-price">
-                <small>€</small>2,346
-            </td>
-            <td colspan="3" class="text-right">
-
-            <!-- BOUTON DE PURCHASAGE -->
-            <%= form_tag charges_path do %>
-              <article>
-                <% if flash[:error].present? %>
-                  <div id="error_explanation">
-                    <p><%= flash[:error] %></p>
-                  </div>
-                <% end %>
-              </article>
-
-              <input type="text" name="cart_amount" value="7000" hidden>
-              
-              <script
-                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                data-key="<%= ENV['PUBLISHABLE_KEY'] %>"
-                data-amount="<%= 5000 %>"
-                data-name="Demo Site"
-                data-description="Example charge"
-                data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-                data-locale="auto"
-                data-currency="eur">
-              </script>
-            <% end %>
+										<script  
+											src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+											data-key="<%= ENV['PUBLISHABLE_KEY'] %>"    
+											data-amount="<%= @sum * 100 %>"   
+											data-name="Demo Site"   
+											data-description="Example charge"   
+											data-image="https://stripe.com/img/documentation/checkout/marketplace.png"  
+											data-locale="auto"  
+											data-currency="eur">    
+										</script> 
 
 
-            </td>
-        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
+									<% end %>
+								<% end %>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>Numéro de carte : 4242 4242 4242 4242</p>
+				<%= button_to "Continuer les achats", root_path, {method: :get, :class => "btn btn-neutral"} %>
+			</div>
+		</div>
+	</div>
 </div>
