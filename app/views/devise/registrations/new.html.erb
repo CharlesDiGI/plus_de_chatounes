@@ -17,28 +17,28 @@
                       <div class="card-body">
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
                           <!-- <input type="text" class="form-control" placeholder="First Name..."> -->
                           <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class:'form-control', placeholder:'First Name' %>
                         </div>
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
                           </div>
                           <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
                           <%= f.text_field :last_name, autofocus: true, autocomplete: "last name",class:'form-control', placeholder:'Last Name'  %>
                         </div>
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
                           </div>
                           <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
                           <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control', placeholder:'Email here'  %>
                         </div>
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <%= f.password_field :password, autocomplete: "new-password",class:'form-control', placeholder:'Password'   %>
                         </div>
@@ -47,7 +47,7 @@
                         <% end %><br />-->
                         <div class="input-group form-group-no-border input-lg">
                           <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                            <span class="input-group-text"><i class="fas fa-key"></i></span>
                           </div>
                           <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control', placeholder:'Confirm password'  %>
                         </div>
@@ -58,7 +58,7 @@
                       </div>
                       <div class="pull-right">
                         <h6>
-                          Render de devise: <%= render "devise/shared/links" %>
+                          <%= render "devise/shared/links" %>
                         </h6>
                       </div>
                     </form>

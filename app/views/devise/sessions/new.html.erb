@@ -15,13 +15,13 @@
                             <div class="card-body">
                                 <div class="input-group form-group-no-border input-lg">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="now-ui-icons users_circle-08"></i></span>
+                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
                                     </div>
                                     <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', placeholder:'Email' %>
                                 </div>
                                 <div class="input-group form-group-no-border input-lg">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="now-ui-icons text_caps-small"></i></span>
+                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
                                     </div>
                                     <%= f.password_field :password, autocomplete: "current-password", class:'form-control', placeholder:'Password' %>
                                 </div>
@@ -31,8 +31,7 @@
                             </div>
                             <div class="pull-left">
                                 <h6>
-                                  <%= link_to "Sign up en mode link_to", new_user_registration_path, method: :get %>
-                                   Render devise: <%= render "devise/shared/links", class:'link footer-link' %>
+                                   <%= render "devise/shared/links", class:'link footer-link' %>
                                 </h6>
                             </div>
                             <div class="pull-right">
