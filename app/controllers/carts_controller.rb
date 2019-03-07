@@ -2,6 +2,7 @@ class CartsController < ApplicationController
 	def show
 		@cart = @current_cart
 		@sum = sum(@cart)
+		@items = Item.all
 	end
 
 	def destroy

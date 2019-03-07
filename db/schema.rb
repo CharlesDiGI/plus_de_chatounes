@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_095031) do
+ActiveRecord::Schema.define(version: 2019_03_07_155615) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,13 +43,10 @@ ActiveRecord::Schema.define(version: 2019_03_07_095031) do
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
-  create_table "good_orders", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "cart_id"
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["cart_id"], name: "index_good_orders_on_cart_id"
-    t.index ["user_id"], name: "index_good_orders_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|
@@ -59,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_03_07_095031) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
   end
 
   create_table "join_table_cart_items", force: :cascade do |t|
@@ -80,7 +79,6 @@ ActiveRecord::Schema.define(version: 2019_03_07_095031) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer "quantity", default: 1
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -103,4 +101,5 @@ ActiveRecord::Schema.define(version: 2019_03_07_095031) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "items", "categories"
 end
