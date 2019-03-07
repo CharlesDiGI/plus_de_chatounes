@@ -98,6 +98,14 @@ a:hover {
   width: 50%;
 }
 
+.text-banner-signup {
+  position: absolute;
+  z-index: 6;
+  margin-top: -45%; 
+  margin-left: 5%; 
+  width: 50%;
+}
+
 .input-color input::placeholder {
   color: black;
 }

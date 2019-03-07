@@ -34,34 +34,22 @@
 							<td class="td-total">Total</td>
 							<td class="td-price"><small>€</small><%= @sum %></td>
 							<td colspan="3" class="text-right">
-								<!--<button type="button" rel="tooltip" class="btn btn-info btn-round " data-original-title="" title="">
-								Passer commande
-								</button>-->
-								<%= button_to "Fais le café pour envoyer un mail Order",  orders_path , method: :post %>
 
-								<!-- BOUTON DE PURCHASAGE -->
-								 <% if @sum > 0 %>
-									<%= form_tag charges_path do %> 
-										<article> 
-											<% if flash[:error].present? %> 
-												<div id="error_explanation">  
-													<p><%= flash[:error] %></p> 
-												</div>    
-											<% end %>   
-										</article>    
+							<!-- BOUTON DE PURCHASAGE -->
+							 <% if @sum > 0 %>
+								<%= form_tag charges_path do %> 
+									<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
 
-										<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
-
-										<script  
-											src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
-											data-key="<%= ENV['PUBLISHABLE_KEY'] %>"    
-											data-amount="<%= @sum * 100 %>"   
-											data-name="Demo Site"   
-											data-description="Example charge"   
-											data-image="https://stripe.com/img/documentation/checkout/marketplace.png"  
-											data-locale="auto"  
-											data-currency="eur">    
-										</script> 
+									<script  
+										src="https://checkout.stripe.com/checkout.js" class="stripe-button" 
+										data-key="<%= ENV['PUBLISHABLE_KEY'] %>"    
+										data-amount="<%= @sum * 100 %>"   
+										data-name="Demo Site"   
+										data-description="Example charge"   
+										data-image="https://stripe.com/img/documentation/checkout/marketplace.png"  
+										data-locale="auto"  
+										data-currency="eur">    
+									</script> 
 
 
 									<% end %>

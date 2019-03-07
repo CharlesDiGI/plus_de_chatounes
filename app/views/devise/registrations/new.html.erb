@@ -1,88 +1,96 @@
-  <div class="login-page">
-    <div class="page-header" filter-color="orange">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= render "devise/shared/error_messages", resource: resource %>
-            <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
-            <div class="content">
-              <div class="container">
-                <div class="col-md-5 ml-auto mr-auto">
-                  <div class="card card-login card-plain">
-                    <form class="form" method="" action="">
-                      <div class="card-header text-center">
-                        <div class="logo-container">
-                          <!-- <img src="../assets/img/now-logo.png" alt=""> -->
-                        </div>
-                           <%= image_tag 'chatons/0.jpg', class:'rounded img-raised' %>
-                      </div>
-                      <div class="card-body">
-                        <div class="input-group form-group-no-border input-lg">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                          </div>
-                          <!-- <input type="text" class="form-control" placeholder="First Name..."> -->
-                          <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class:'form-control', placeholder:'First Name' %>
-                        </div>
-                        <div class="input-group form-group-no-border input-lg">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-user"></i></span>
-                          </div>
-                          <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
-                          <%= f.text_field :last_name, autofocus: true, autocomplete: "last name",class:'form-control', placeholder:'Last Name'  %>
-                        </div>
-                        <div class="input-group form-group-no-border input-lg">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                          </div>
-                          <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
-                          <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control', placeholder:'Email here'  %>
-                        </div>
-                        <div class="input-group form-group-no-border input-lg">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                          </div>
-                          <%= f.password_field :password, autocomplete: "new-password",class:'form-control', placeholder:'Password'   %>
-                        </div>
-                        <!--  <% if @minimum_password_length %>
-                          <em>(<%= @minimum_password_length %> characters minimum)</em>
-                        <% end %><br />-->
-                        <div class="input-group form-group-no-border input-lg">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-key"></i></span>
-                          </div>
-                          <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control', placeholder:'Confirm password'  %>
-                        </div>
-                      </div>
-                      <div class="card-footer text-center">
-                        <%= f.submit "Sign up",class:"btn btn-primary btn-round btn-lg btn-block" %>
-                        <!-- <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Sign In</a> -->
-                      </div>
-                      <div class="pull-right">
-                        <h6>
-                          <%= render "devise/shared/links" %>
-                        </h6>
-                      </div>
-                    </form>
+<!--   <div class="login-page"> -->
+<div class="banner">
+  <div class='img-banner'>
+    <%= image_tag("banner.jpg") %>
+  </div>
+  <div class='text-banner-signup'>
+    <!-- <div class="page-header" filter-color="orange"> -->
+      <%= render 'layouts/flash'%>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
+      <div class="content">
+        <div class="container">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="card card-login card-plain">
+              <form class="form" method="" action="">
+                <div class="card-header text-center">
+                  <div class="logo-container">
+                    <!-- <img src="../assets/img/now-logo.png" alt=""> -->
                   </div>
                 </div>
-              </div>
-            </div>
-      <% end %>
-        <footer id="sticky-footer" class="footer">
-          <div class="container">
-            <nav>
-              <ul>
-                <li><a href="#creative">Creative Tim</a></li>
-                <li><a href="#creative">About Us</a></li>
-                <li><a href="#creative">Blog</a></li>
-                <li><a href="#creative">License</a></li>
-              </ul>
-            </nav>
-            <div class="copyright">
-              &copy;2019, Designed by
-              <a href="http://www.invisionapp.com">Invision</a>. Coded by
-              <a href="https://www.creative-tim.com">Creative Tim</a>.
+                <div class="card-body input-color">
+                  <div class="input-group form-group-no-border input-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <!-- <input type="text" class="form-control" placeholder="First Name..."> -->
+                    <%= f.text_field :first_name, autofocus: true, autocomplete: "first name", class:'form-control', placeholder:'First Name' %>
+                  </div>
+                  <div class="input-group form-group-no-border input-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
+                    <%= f.text_field :last_name, autofocus: true, autocomplete: "last name",class:'form-control', placeholder:'Last Name'  %>
+                  </div>
+                  <div class="input-group form-group-no-border input-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                    </div>
+                    <!-- <input type="text" class="form-control" placeholder="Last Name..."> -->
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:'form-control', placeholder:'Email here'  %>
+                  </div>
+                  <div class="input-group form-group-no-border input-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <%= f.password_field :password, autocomplete: "new-password",class:'form-control', placeholder:'Password'   %>
+                  </div>
+                  <!--  <% if @minimum_password_length %>
+                          <em>(<%= @minimum_password_length %> characters minimum)</em>
+                        <% end %><br />-->
+                  <div class="input-group form-group-no-border input-lg">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password", class:'form-control', placeholder:'Confirm password'  %>
+                  </div>
+                </div>
+                <div class="card-footer text-center">
+                  <%= f.submit "Sign up",class:"btn btn-primary btn-round btn-lg btn-block" %>
+                  <!-- <a href="#pablo" class="btn btn-primary btn-round btn-lg btn-block">Sign In</a> -->
+                </div>
+                <div class="pull-right">
+                  <h6>
+                    <%= render "devise/shared/links" %>
+                  </h6>
+                </div>
+              </form>
             </div>
           </div>
-        </footer>
-    </div>
+        </div>
+      </div>
+    <% end %>
   </div>
+    <footer id="sticky-footer" class="footer">
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="#creative">Creative Tim</a></li>
+            <li><a href="#creative">About Us</a></li>
+            <li><a href="#creative">Blog</a></li>
+            <li><a href="#creative">License</a></li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          &copy;2019, Designed by
+          <a href="http://www.invisionapp.com">Invision</a>. Coded by
+          <a href="https://www.creative-tim.com">Creative Tim</a>.
+        </div>
+      </div>
+    </footer>
+</div>
+</div>
+</div>
+<!-- </div> -->
