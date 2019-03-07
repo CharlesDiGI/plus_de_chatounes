@@ -90,6 +90,7 @@ Rails.application.configure do
   end
 
   # Do not dump schema after migrations.
-  config.action_mailer.delivery_method = :mailjet
+  # config.action_mailer.delivery_method = :sendgrid
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.perfom_deliveries = true
 end
