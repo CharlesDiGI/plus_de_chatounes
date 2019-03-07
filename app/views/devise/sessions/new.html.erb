@@ -1,65 +1,72 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="page-header" filter-color="orange">
-        <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
-        <div class="content">
-            <div class="container">
-                <div class="col-md-5 ml-auto mr-auto">
-                    <div class="card card-login card-plain">
-                        <form class="form" method="" action="">
-                            <div class="card-header text-center">
-                                <div class="logo-container">
-                                    <!-- <img src="../assets/img/now-logo.png" alt=""> -->
-                                    <%= image_tag 'chatons/0.jpg', class:'rounded img-raised' %>
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <div class="input-group form-group-no-border input-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="far fa-envelope"></i></span>
-                                    </div>
-                                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', placeholder:'Email' %>
-                                </div>
-                                <div class="input-group form-group-no-border input-lg">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="fas fa-key"></i></span>
-                                    </div>
-                                    <%= f.password_field :password, autocomplete: "current-password", class:'form-control', placeholder:'Password' %>
-                                </div>
-                            </div>
-                            <div class="card-footer text-center">
-                              <%= f.submit "Log in" , class:'btn btn-primary btn-round btn-lg btn-block' %>
-                            </div>
-                            <div class="pull-left">
-                                <h6>
-                                   <%= render "devise/shared/links", class:'link footer-link' %>
-                                </h6>
-                            </div>
-                            <div class="pull-right">
-                                <h6>
-                                    <a href="#pablo" class="link footer-link">Need Help?</a>
-                                </h6>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-<% end %>
-  <footer id="sticky-footer" class="footer">
-    <div class="container">
-      <nav>
-        <ul>
-          <li><a href="#creative">Creative Tim</a></li>
-          <li><a href="#creative">About Us</a></li>
-          <li><a href="#creative">Blog</a></li>
-          <li><a href="#creative">License</a></li>
-        </ul>
-      </nav>
-      <div class="copyright">
-        &copy;2019, Designed by
-        <a href="http://www.invisionapp.com">Invision</a>. Coded by
-        <a href="https://www.creative-tim.com">Creative Tim</a>.
-      </div>
+  <div class="banner">
+    <div class='img-banner'>
+      <%= image_tag("banner.jpg") %>
     </div>
-  </footer>
+      <div class='text-banner-connection'>
+    <!-- <div class="page-header" filter-color="orange">
+      <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div> -->
+      <div class="content">
+        <div class="container">
+          <div class="col-md-8 ml-auto mr-auto">
+            <div class="card card-login card-plain">
+              <form class="form" method="" action="">
+                <div class="card-header text-center">
+                  <div class="logo-container">
+                    <!-- <img src="../assets/img/now-logo.png" alt=""> -->
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="input-group form-group-no-border input-lg input-color">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-envelope"></i></span>
+                    </div>
+                    <%= f.email_field :email, autofocus: true, autocomplete: "email", class:'form-control', placeholder:'Email' %>
+                  </div>
+                  <div class="input-group form-group-no-border input-lg input-color">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-key"></i></span>
+                    </div>
+                    <%= f.password_field :password, autocomplete: "current-password", class:'form-control', placeholder:'Password' %>
+                  </div>
+                </div>
+                <div class="card-footer text-center">
+                  <%= f.submit "Log in" , class:'btn btn-primary btn-round btn-lg btn-block' %>
+                </div>
+                <div class="pull-left">
+                  <h6>
+                    <%= render "devise/shared/links", class:'link footer-link' %>
+                  </h6>
+                </div>
+                <div class="pull-right">
+                  <h6>
+                    <a href="#pablo" class="link footer-link">Need Help?</a>
+                  </h6>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+    <footer id="sticky-footer" class="footer">
+      <div class="container">
+        <nav>
+          <ul>
+            <li><a href="#creative">Creative Tim</a></li>
+            <li><a href="#creative">About Us</a></li>
+            <li><a href="#creative">Blog</a></li>
+            <li><a href="#creative">License</a></li>
+          </ul>
+        </nav>
+        <div class="copyright">
+          &copy;2019, Designed by
+          <a href="http://www.invisionapp.com">Invision</a>. Coded by
+          <a href="https://www.creative-tim.com">Creative Tim</a>.
+        </div>
+      </div>
+    </footer>
+  
+
 </div>
