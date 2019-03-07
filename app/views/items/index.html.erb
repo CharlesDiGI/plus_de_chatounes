@@ -18,6 +18,7 @@
         <div class="col-md-12">
           <div class="row">
             <% @items.each do |item| %>
+            <% if is_kitty?(item) %>
               <div class="col-lg-4 col-md-6">
                 <div class="card-index">
                   <div>
@@ -38,6 +39,7 @@
                   </div>
                 </div>
               </div>
+            <% end %>
             <% end %>
           </div>
         </div>

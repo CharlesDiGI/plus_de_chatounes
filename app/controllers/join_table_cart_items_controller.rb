@@ -5,6 +5,7 @@ class JoinTableCartItemsController < ApplicationController
   def create
     # Find associated product and current cart
     chosen_item = Item.find(params[:item_id])
+    @item = chosen_item
     current_cart = @current_cart
   
     # If cart already has this product then find the relevant line_item and iterate quantity otherwise create a new line_item for this product
@@ -13,19 +14,24 @@ class JoinTableCartItemsController < ApplicationController
       @join_table_cart_item.cart = current_cart
       @join_table_cart_item.item = chosen_item
       @join_table_cart_item.save
+      respond_to do |format| 
+        format.html { redirect_to cart_path(@current_cart) }
+        format.js
+      end
     else
+      redirect_to cart_path(@current_cart)
       flash[:error] = 'pix already in your cart'
     end
   
     # Save and redirect to cart show path
-    #@join_table_cart_item.save
-    redirect_to cart_path(@current_cart)
+    # @join_table_cart_item.save
+    # redirect_to cart_path(@current_cart)
   end
 
   def destroy
     @join_table_cart_item = JoinTableCartItem.find(params[:id])
     @join_table_cart_item.destroy
-    redirect_to cart_path(@current_cart.id)
+    redirect_to cart_path(@current_cart)
   end
   
   private
