@@ -1,4 +1,5 @@
 class Admin::AdminsController < ApplicationController
-    def index
-    end
+	before_action :is_admin?
+    
+  
 end

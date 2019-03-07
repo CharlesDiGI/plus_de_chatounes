@@ -10,12 +10,14 @@ Rails.application.routes.draw do
   resources :carts, param: :permalink
   # match 'my_cart', to: 'carts#show', via: [:get]
   resources :orders
-  resources :charges
+  resources :charges, only: [:new, :create]
 
   namespace :admin do
     resources :items
     resources :admins, only: [:index]
     root 'admins#index'
   end
+
+  # get '*path' => redirect('/')
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

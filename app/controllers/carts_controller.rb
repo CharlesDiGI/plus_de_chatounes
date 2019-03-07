@@ -1,4 +1,6 @@
 class CartsController < ApplicationController
+	before_action :authenticate_user!, only: [:show]
+
 	def show
 		@cart = @current_cart
 		@sum = sum(@cart)
