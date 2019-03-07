@@ -1,0 +1,17 @@
+<div class="content row justify-content-md-center">
+  <div class="card col-lg-6 my-5">
+    <div class="card-body">
+        <h1 class="mb-5">Ajouter un item</h1>
+
+        <%= form_with model: @item, local: true, :html => {:class => 'input-color'}  do |f| %>
+                <%= f.label 'Choisis ton image :' %>
+                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/jpg' %>
+                <%= f.text_field :title, class:"form-control mb-4", placeholder: 'Titre' %>
+                <%= f.text_area :description, class:"form-control mb-4", placeholder: 'Description' %>
+                <%= f.text_field :price, class:"form-control mb-4", placeholder: 'Prix' %>
+                <%= f.submit "Ajouter mon item", class: "btn btn-secondary" %>
+
+        <% end %>
+
+    </div>
+</div>

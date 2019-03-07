@@ -22,7 +22,9 @@
               <div class="col-lg-4 col-md-6">
                 <div class="card-index">
                   <div>
-                    <%= link_to image_tag(item.image), item_path(item.id) %>
+                    <%= link_to item_path(item.id) do %>
+                      <%= image_tag(item.image) if item.image.attached? %>
+                    <% end %>
                   </div>
                   <div class="card-body">
                     <% if @current_cart.items.find_by_id(item.id) %>

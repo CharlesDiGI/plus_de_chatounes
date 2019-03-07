@@ -7,6 +7,7 @@ class Admin::ItemsController < ApplicationController
     end
 
     def show
+        @itm = Item.find(paramd[:id])
     end
 
     def new
@@ -18,16 +19,14 @@ class Admin::ItemsController < ApplicationController
  
     def create
       @item = Item.new(item_params)
-  
-      respond_to do |format|
+      @item.image.attach(params[:item][:image])
+      
         if @item.save
-          format.html { redirect_to @item, notice: 'Item was successfully created.' }
-          format.json { render :show, status: :created, location: @item }
+          redirect_to admin_item_path(@item.id)
         else
-          format.html { render :new }
-          format.json { render json: @item.errors, status: :unprocessable_entity }
+          render :new
         end
-      end
+        
     end
   
     def update
@@ -54,8 +53,8 @@ class Admin::ItemsController < ApplicationController
       def set_item
         @item = Item.find(params[:id])
       end
-  
+
       def item_params
-        params.require(:item).permit(:title, :description, :price, :image)
+        params.require(:item).permit(:title, :description, :price, image: {}) 
       end
 end

@@ -25,25 +25,13 @@
 			<span class="title"><%= @item.price %> €</span>
 		</div>
 
-		<div class="col-md-2">
-			<% if logged_in? %>
-
-				<% if !@current_cart.items.find_by_id(@item.id) %>
-					<%= button_to "Add to cart", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary"} %>
-				<% else %>
-					<%= button_to "Already in the cart", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary", :disabled => true} %>
-				<% end %>
-
-				<%= button_to "Voir mon panier", cart_path(@current_cart), {method: :get, :class => "btn btn-lg btn-primary"} %>
-			<% end %>
-		</div>
 	</div>
 
 	<div class="row mt-5">
 		<div class="col-md text-right">
+			<%= link_to 'Edit', edit_item_path(@item) %> |
 			<%= link_to 'Back', items_path %>
 		</div>
 	</div>
 
 </div>
- 
