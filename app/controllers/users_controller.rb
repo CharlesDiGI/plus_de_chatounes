@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    if current_user.id.to_i != params[:id].to_i
+      redirect_to root_path
+    end
     @my_orders = @user.orders
   end
 
