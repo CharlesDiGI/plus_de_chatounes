@@ -27,7 +27,13 @@
 
 		<div class="col-md-2">
 			<% if logged_in? %>
-				<%= button_to "Ajouter au panier", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary"} %>
+
+				<% if !@current_cart.items.find_by_id(@item.id) %>
+					<%= button_to "Add to cart", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary"} %>
+				<% else %>
+					<%= button_to "Already in the cart", item_join_table_cart_items_path(@item.id), {method: :post, :class => "btn btn-lg btn-primary", :disabled => true} %>
+				<% end %>
+
 				<%= button_to "Voir mon panier", cart_path(@current_cart), {method: :get, :class => "btn btn-lg btn-primary"} %>
 			<% end %>
 		</div>
