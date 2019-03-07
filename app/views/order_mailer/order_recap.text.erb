@@ -5,6 +5,7 @@ Et voilà ta commande:
       <% @items.each do |item| %>
         <%= item.title %>
         <%= item.description %>
+        <%= link_to item.title url_for(item.image) %>
         <%= item.price %>
       <%end %>
 
