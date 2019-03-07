@@ -36,7 +36,7 @@
                 <% end %>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to "My profile", user_path(current_user.id), :class => "dropdown-item" %>
+                  <%= link_to 'My profile', user_path(current_user.id), :class => "dropdown-item" %>
                   <%= link_to "Log out", destroy_user_session_path, method: :delete,  data: { confirm: "Tu es sûr-e ?" }, :class => "dropdown-item" %>
                 </div>
               </div>
@@ -55,7 +55,7 @@
 
             <% if user_signed_in? %>
             <div class="nav-item align-self-center">
-              <a href="<%= cart_path(current_user.cart) %>"><i class="fal fa-shopping-cart"></i> Icon cart</a>
+              <a href="<%= cart_path(current_user.cart) %>"><i class="fas fa-shopping-cart"></i> Cart</a>
             </div>
             <% end %>
           </div>
