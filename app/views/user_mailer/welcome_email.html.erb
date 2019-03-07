@@ -9,8 +9,8 @@
       Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
     </p>
     <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+      Pour accéder à ton espace client, connecte-toi via : <%= link_to "ton profil", new_user_session_url %>.
     </p>
-    <p> À très vite sur monsite.fr </p>
+    <p> À très vite sur leschatons.com </p>
   </body>
 </html>

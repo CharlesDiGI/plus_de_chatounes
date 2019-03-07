@@ -12,9 +12,9 @@ class OrderMailer < ApplicationMailer
     # }
 
     # attachement but not inline
-    @items.each { |item|
-      attachments["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
-    }
+    # @items.each { |item|
+    #   attachments["image"+item.id.to_s+".jpg"] = File.read(ActiveStorage::Blob.service.send(:path_for, item.image.key)) if item.image.attached?
+    # }
 
     # attachments.inline['0.jpg'] = File.read('app/assets/images/chatons/0.jpg')
     # <%= image_tag attachments['image.jpg'].url, alt: 'My Photo', class: 'photos' %>
