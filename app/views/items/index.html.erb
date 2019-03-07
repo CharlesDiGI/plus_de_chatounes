@@ -8,7 +8,7 @@
         <h3 class='txt-ban-prim'>Fan de chatoune ?</h3>
         <h5 class='txt-ban-sec'>Viens regarder les différentes images que nous proposons !</h5>
       </br>
-      <button class='btn btn-secondary' id='btn-banner'>Nos images disponibles</button>
+      <button class='btn btn-secondary' id='btn-banner' onclick="slideIndex();">Nos images disponibles</button>
     </div>
   </div>
   <div class="main">
@@ -18,6 +18,7 @@
         <div class="col-md-12">
           <div class="row">
             <% @items.each do |item| %>
+            <% if is_kitty?(item) %>
               <div class="col-lg-4 col-md-6">
                 <div class="card-index">
                   <div>
@@ -26,7 +27,11 @@
                     <% end %>
                   </div>
                   <div class="card-body">
-                    <h4 class="title-card"><%= item.title %></h4>
+                    <% if @current_cart.items.find_by_id(item.id) %>
+                      <h4 class="title-card"><%= item.title %> <i class="fas fa-shopping-cart fa-xs"></i></h4>
+                    <% else %>
+                      <h4 class="title-card"><%= item.title %></h4>
+                    <% end %>
                     <p class="description-card">
                       <%= item.description %>
                     </p>
@@ -36,6 +41,7 @@
                   </div>
                 </div>
               </div>
+            <% end %>
             <% end %>
           </div>
         </div>

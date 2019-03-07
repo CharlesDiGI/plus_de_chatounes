@@ -1,0 +1,16 @@
+						<tr>
+							<td>
+							<div class="img-container">
+							<%= image_tag(item.image) %>
+							</div>
+							</td>
+							<td class="td-name"><%= item.title %></td>
+							<td class="td-name"><%= item.description %></td>
+							<td class="td-number"><%= item.price %><small>€</small></td>
+							<td class="td-actions">
+							<!--<button type="button" rel="tooltip" data-placement="left" title="" class="btn btn-neutral" data-original-title="Remove item">
+							<i class="fas fa-times"></i>
+							</button>-->
+							<%= button_to "X" %>
+							</td>
+						</tr>

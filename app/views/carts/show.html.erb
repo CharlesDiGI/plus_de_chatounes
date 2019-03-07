@@ -38,14 +38,6 @@
 							<!-- BOUTON DE PURCHASAGE -->
 							 <% if @sum > 0 %>
 								<%= form_tag charges_path do %> 
-									<article> 
-										<% if flash[:error].present? %> 
-											<div id="error_explanation">  
-												<p><%= flash[:error] %></p> 
-											</div>    
-										<% end %>   
-									</article>    
-
 									<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
 
 									<script  
@@ -72,3 +64,40 @@
 		</div>
 	</div>
 </div>
+<% if not_empty? %>
+	<div class="main">
+    <div class="section" id='img-ancre'>
+      <div class="container">
+        <h2 class="section-title">Vous aimez vos photos de chatounes ? Offrez-leur une photo de croquette !</h2>
+        <div class="col-md-12">
+          <div class="row">
+            <% @items.each do |item| %>
+            <% if is_kibble?(item) %>
+              <div class="col-lg-4 col-md-6">
+                <div class="card-index">
+                  <div>
+                    <%= link_to image_tag(item.image), item_join_table_cart_items_path(item), method: :post, remote: true %>
+                  </div>
+                  <div class="card-body">
+                    <% if @current_cart.items.find_by_id(item.id) %>
+                      <h4 class="title-card"><%= item.title %> <i class="fas fa-shopping-cart fa-xs"></i></h4>
+                    <% else %>
+                      <h4 class="title-card"><%= item.title %></h4>
+                    <% end %>
+                    <p class="description-card">
+                      <%= item.description %>
+                    </p>
+                    <div class="price-container">
+                      <span class="price"> &euro; <%= item.price %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

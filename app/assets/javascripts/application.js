@@ -13,8 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require core/bootstrap.min
 //= require core/jquery.3.2.1.min
+//= require core/bootstrap.min
 //= require core/popper.min
 
 //= require plugins/moment.min
@@ -29,15 +29,8 @@
 //= require_tree .
 
 function slideIndex() {
-    $(document).ready(function(){
-        $('#btn-banner').on('click', function(evt){
-           evt.preventDefault(); 
-     var target = $('#img-ancre');
-     $('html, body')
-           .stop()
-           .animate({scrollTop: $(target).offset().top}, 1000 );
-        });
-    });
+	$(document).ready(function(){
+		let target = $('#img-ancre');
+		$('html, body').stop().animate({scrollTop: $(target).offset().top}, 1000 );
+	});
 }
-
-slideIndex()
