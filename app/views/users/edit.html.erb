@@ -1,7 +1,14 @@
-<div class="container">
-	<h3>Editing User</h3>
+<div class="container mt-5">
+
+	<div class="row justify-content-center">
+		<h3>Editing User</h3>
+	</div>
 
 	<%= render 'form', user: @user %>
 
-	<%= link_to 'Back', @user %>
+	<div class="row">
+		<div class="col text-right">
+			<%= link_to 'Back', @user %>
+		</div>
+	</div>
 </div>

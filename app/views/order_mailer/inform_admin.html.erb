@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1> Nouvelle commande de la part de: <strong><%= @user.first_name %> <%= @user.last_name %></strong> !</h1>
+    <p>
+      Cet utilisateur vient de passer commande de: <br>
+ 
+      <% @items.each do |item| %>
+        <strong><%= item.title %></strong> <br>
+      <%end %>
+    </p>
+    <p>
+      Voilà, c'est dit
+    </p>
+  </body>
+</html>

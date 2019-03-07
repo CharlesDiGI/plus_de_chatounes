@@ -1,1 +1,2 @@
-<h2>Thanks, you paid <strong>$5.00</strong>!</h2>
+<h2>Thanks, you paid <strong><%= (params[:cart_amount].to_i / 100) %> €</strong>!</h2>
+<%= link_to 'HOME', root_path, :class => "btn btn-info btn-round text-light" %>

@@ -66,3 +66,26 @@ a:hover {
   font-weight: 300;
   font-size: 1.1em;
 }
+
+.text-banner {
+  position: absolute;
+  z-index: 6;
+  margin-top: -35%; 
+  margin-left: 8%;
+}
+
+.img-banner {
+  z-index: 3;
+}
+
+.txt-ban-sec {
+  color: #9A9A9A;
+}
+
+.txt-ban-prim {
+  margin-bottom: 5px;
+}
+
+.text-banner .btn {
+  font-size: 1em;
+}

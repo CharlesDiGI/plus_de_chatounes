@@ -1,0 +1,13 @@
+Merci pour ta commande <%= @user.first_name %> <%= @user.last_name %> !
+==========================================================
+     
+Et voilà ta commande: 
+      <% @items.each do |item| %>
+        <%= item.title %>
+        <%= item.description %>
+        <%= item.price %>
+      <%end %>
+
+Pour accéder à ton espace client, connecte-toi à : <%= link_to "ton profil", new_user_session_url %>
+ 
+Reviens vite nous voir sur les 4 chatons fantastiques !

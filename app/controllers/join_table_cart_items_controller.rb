@@ -12,17 +12,20 @@ class JoinTableCartItemsController < ApplicationController
       @join_table_cart_item = JoinTableCartItem.new
       @join_table_cart_item.cart = current_cart
       @join_table_cart_item.item = chosen_item
+      @join_table_cart_item.save
+    else
+      flash[:error] = 'pix already in your cart'
     end
   
     # Save and redirect to cart show path
-    @join_table_cart_item.save
-    redirect_to root_path
+    #@join_table_cart_item.save
+    redirect_to cart_path(@current_cart)
   end
 
   def destroy
     @join_table_cart_item = JoinTableCartItem.find(params[:id])
     @join_table_cart_item.destroy
-    redirect_to cart_path(@current_cart)
+    redirect_to cart_path(@current_cart.id)
   end
   
   private
