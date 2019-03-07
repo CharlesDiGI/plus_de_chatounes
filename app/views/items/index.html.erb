@@ -24,7 +24,11 @@
                     <%= link_to image_tag(item.image), item_path(item.id) %>
                   </div>
                   <div class="card-body">
-                    <h4 class="title-card"><%= item.title %></h4>
+                    <% if @current_cart.items.find_by_id(item.id) %>
+                      <h4 class="title-card"><%= item.title %> <i class="fas fa-shopping-cart fa-xs"></i></h4>
+                    <% else %>
+                      <h4 class="title-card"><%= item.title %></h4>
+                    <% end %>
                     <p class="description-card">
                       <%= item.description %>
                     </p>
