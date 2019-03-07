@@ -1,5 +1,9 @@
 {
   "name": "plus_de_chatounes",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "engines": {
+    "node": "6.11.1",
+    "yarn": "0.27.5"
+  }
 }
