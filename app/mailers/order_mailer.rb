@@ -28,7 +28,7 @@ class OrderMailer < ApplicationMailer
 #          <%end %>
 
     mail(
-      from: "charles.digiampietro@gmail.com",
+      from: "no-reply-order@chatons.com",
       subject: "Thanks for your order",
       to: @user.email,
       delivery_method_options: { version: 'v3.1' }
@@ -42,7 +42,7 @@ class OrderMailer < ApplicationMailer
     @user = @order.user
 
     mail(
-      from: "charles.digiampietro@gmail.com",
+      from: "no-reply-order@chatons.com",
       subject: "New Order from #{@user.first_name} #{@user.last_name} ",
       to: "admin_les_4_chatons@yopmail.com",
       delivery_method_options: { version: 'v3.1' }
