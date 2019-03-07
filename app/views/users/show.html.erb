@@ -24,31 +24,29 @@
 					<tr>
 						<th class="text-center">#</th>
 						<th>Date</th>
-						<th>Name</th>
+						<th>Items</th>
 						<th class="text-center">Amount</th>
 						<th class="text-center">Status</th>
-						<th class="text-center">Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="text-center">1</td>
-						<td>06/03/2019</td>
-						<td>Cat in the kitchen</td>
-						<td class="text-center">25,00 €</td>
-						<td class="text-success text-center">Done</td>
-						<td class="text-center">
-							<button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="">
-								<i class="now-ui-icons users_single-02"></i>
-							</button>
-							<button type="button" rel="tooltip" class="btn btn-success btn-icon btn-sm " data-original-title="" title="">
-								<i class="now-ui-icons ui-2_settings-90"></i>
-							</button>
-							<button type="button" rel="tooltip" class="btn btn-danger btn-icon btn-sm " data-original-title="" title="">
-								<i class="now-ui-icons ui-1_simple-remove"></i>
-							</button>
-						</td>
-					</tr>
+
+					<% if @my_orders != nil %>
+						<% @my_orders.each do |order| %>
+						<tr>
+							<td class="text-center"><%= order.id %></td>
+							<td><%= order.created_at %></td>
+							<td>
+								<% order.order_items.each do |order_item| %>
+									<%= order_item.item.title %><br>
+								<% end %>
+							</td>
+							<td class="text-center">25,00 €</td>
+							<td class="text-success text-center">Done</td>
+							
+						</tr>
+						<% end %>	
+					<% end %>
 				</tbody>
 				</table>
   		</div>
