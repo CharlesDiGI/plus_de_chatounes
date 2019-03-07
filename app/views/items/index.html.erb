@@ -1,44 +1,45 @@
 <div class="ecommerce-page">
-    <div class="wrapper">
-        <div class="banner">
-            <div class='img-banner'>
-                <%= image_tag("banner.jpg") %>
-            </div>
-            <div class='text-banner'>
-                <h3 class='txt-ban-prim'>Fan de chatoune ?</h3>
-                <h5 class='txt-ban-sec'>Viens regarder les différentes images que nous proposons !</h5></br>
-                <button class='btn btn-secondary' id='btn-banner'>Nos images disponibles</button>
-            </div>
-        </div> 
-        <div class="main">
-            <div class="section" id='img-ancre'>
-                <div class="container">
-                    <h2 class="section-title">Toutes nos images disponibles</h2>
-                        <div class="col-md-12">
-                            <div class="row">
-                              <% @items.each do |item| %>
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="card-index">
-                                        <div>
-                                            <%= link_to image_tag(item.image), item_path(item.id) %> 
-                                        </div>
-                                        <div class="card-body">
-                                            <h4 class="title-card"><%= item.title %></h4>
-                                            <p class="description-card">
-                                                <%= item.description %>
-                                            </p>                                       
-                                            <div class="price-container">
-                                                <span class="price"> &euro; <%= item.price %></span>
-                                            </div> 
-                                        </div>
-                                    </div>
-                                </div>
-                              <% end %>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="wrapper">
+    <div class="banner">
+      <div class='img-banner'>
+        <%= image_tag("banner.jpg") %>
+      </div>
+      <div class='text-banner'>
+        <h3 class='txt-ban-prim'>Fan de chatoune ?</h3>
+        <h5 class='txt-ban-sec'>Viens regarder les différentes images que nous proposons !</h5>
+      </br>
+      <button class='btn btn-secondary' id='btn-banner'>Nos images disponibles</button>
     </div>
+  </div>
+  <div class="main">
+    <div class="section" id='img-ancre'>
+      <div class="container">
+        <h2 class="section-title">Toutes nos images disponibles</h2>
+        <div class="col-md-12">
+          <div class="row">
+            <% @items.each do |item| %>
+              <div class="col-lg-4 col-md-6">
+                <div class="card-index">
+                  <div>
+                    <%= link_to image_tag(item.image), item_path(item.id) %>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="title-card"><%= item.title %></h4>
+                    <p class="description-card">
+                      <%= item.description %>
+                    </p>
+                    <div class="price-container">
+                      <span class="price"> &euro; <%= item.price %></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>

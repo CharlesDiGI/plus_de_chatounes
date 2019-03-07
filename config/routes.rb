@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :items do
     resources :join_table_cart_items
   end
-  
-  resources :carts
+
+  resources :carts, param: :permalink
+  # match 'my_cart', to: 'carts#show', via: [:get]
   resources :orders
   resources :charges
 

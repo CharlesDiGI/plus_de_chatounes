@@ -1,6 +1,4 @@
 <div class="container">
-	<p id="notice"><%= notice %></p>
-
   <div class="row">
   	<div class="col">
   		<h4>
@@ -41,7 +39,7 @@
 									<%= order_item.item.title %><br>
 								<% end %>
 							</td>
-							<td class="text-center">25,00 €</td>
+							<td class="text-center"><%= sum_order(order)%> €</td>
 							<td class="text-success text-center">Done</td>
 							
 						</tr>

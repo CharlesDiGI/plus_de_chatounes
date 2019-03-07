@@ -9,11 +9,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="landing-page  d-flex flex-column">
+
     <% if admin_navbar? %>
       <%= render 'layouts/navbar_admin' %>
     <% else %>
       <%= render 'layouts/navbar' %>
     <% end %>
+ 
+
+    <%= render 'layouts/flash'%>
 
     <div id="page-content">
       <%= yield %>
