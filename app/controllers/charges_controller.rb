@@ -32,7 +32,7 @@ class ChargesController < ApplicationController
 
     @current_cart.destroy
     session[:cart_id] = nil
-    redirect_to root_path
+    redirect_to user_path(current_user.id), :flash => { :notice => "Yeepee!" }
 	end
 
 	rescue Stripe::CardError => e
