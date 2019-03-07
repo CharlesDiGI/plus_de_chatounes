@@ -10,7 +10,7 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="card-index">
                                         <div>
-                                            <%= link_to item_path(item.id) do %>
+                                            <%= link_to admin_item_path(item.id) do %>
                                                 <%= image_tag(item.image) if item.image.attached? %>
                                             <% end %>
                                         </div>
