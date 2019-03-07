@@ -38,14 +38,6 @@
 							<!-- BOUTON DE PURCHASAGE -->
 							 <% if @sum > 0 %>
 								<%= form_tag charges_path do %> 
-									<article> 
-										<% if flash[:error].present? %> 
-											<div id="error_explanation">  
-												<p><%= flash[:error] %></p> 
-											</div>    
-										<% end %>   
-									</article>    
-
 									<input type="text" name="cart_amount" value="<%= (@sum * 100).round %>" hidden>   
 
 									<script  
