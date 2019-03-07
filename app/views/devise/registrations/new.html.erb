@@ -5,6 +5,7 @@
   </div>
   <div class='text-banner-signup'>
     <!-- <div class="page-header" filter-color="orange"> -->
+      <%= render 'layouts/flash'%>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
       <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
