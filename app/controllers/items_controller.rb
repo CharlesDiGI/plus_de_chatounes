@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin?, only: [:destroy, :update, :edit]
 
   # GET /items
   # GET /items.json
