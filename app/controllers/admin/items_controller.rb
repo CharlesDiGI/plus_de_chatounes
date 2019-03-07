@@ -7,7 +7,7 @@ class Admin::ItemsController < ApplicationController
     end
 
     def show
-        @itm = Item.find(paramd[:id])
+        @item = Item.find(params[:id])
     end
 
     def new
@@ -15,10 +15,12 @@ class Admin::ItemsController < ApplicationController
     end
 
     def edit
+      @item = Item.find(params[:id])
     end
  
     def create
       @item = Item.new(item_params)
+      @item.image_url = url_for(@item.image)
       @item.image.attach(params[:item][:image])
       
         if @item.save
@@ -30,24 +32,20 @@ class Admin::ItemsController < ApplicationController
     end
   
     def update
-      respond_to do |format|
+      @item = Item.find(params[:id])
         if @item.update(item_params)
-          format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-          format.json { render :show, status: :ok, location: @item }
+          redirect_to admin_item_path(@item.id)
         else
-          format.html { render :edit }
-          format.json { render json: @item.errors, status: :unprocessable_entity }
+          render :edit
         end
-      end
     end
   
     def destroy
+      @item = Item.find(params[:id])
       @item.destroy
-      respond_to do |format|
-        format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-        format.json { head :no_content }
-      end
+      redirect_to admin_items_path, notice: "L'item a bien été supprimé."
     end
+
   
     private
       def set_item
@@ -55,6 +53,6 @@ class Admin::ItemsController < ApplicationController
       end
 
       def item_params
-        params.require(:item).permit(:title, :description, :price, image: {}) 
+        params.require(:item).permit(:title, :description, :price, :image, :category_id) 
       end
 end

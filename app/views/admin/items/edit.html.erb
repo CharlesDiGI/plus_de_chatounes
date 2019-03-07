@@ -1,0 +1,24 @@
+<div class="content row justify-content-md-center">
+  <div class="card col-lg-6 my-5">
+    <div class="card-body">
+        <h1 class="mb-5">Modifier un item</h1>
+
+        <%= form_for([:admin, @item], :html => {:class => 'input-color'}) do |f| %>
+                <%= f.label 'Choisis ton image :' %>
+                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/png,image/gif,image/jpeg', placeholder: @item.image_url %>
+                <%= f.text_field :title, class:"form-control mb-4", placeholder: @item.title %>
+                <%= f.text_area :description, class:"form-control mb-4", placeholder: @item.description %>
+                <%= f.text_field :price, class:"form-control mb-4", placeholder: @item.price %>
+                
+                <%= f.radio_button :category_id, 1 %>
+                <%= f.label :kitty, 'Kitty' %><br/>
+               
+                <%= f.radio_button :category_id, 2 %>
+                <%= f.label :kibble, 'Kibble' %><br/>
+
+                <%= f.submit "Modifier mon item", class: "btn btn-secondary" %>
+
+        <% end %>
+
+    </div>
+</div>
