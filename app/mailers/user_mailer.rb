@@ -24,12 +24,4 @@ class UserMailer < ApplicationMailer
 
   end
 
-  def order_chaton
-
-  end
-
-  def inform_admin
-
-  end
-
 end
