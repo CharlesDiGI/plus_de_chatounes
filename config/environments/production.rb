@@ -93,4 +93,5 @@ Rails.application.configure do
   # config.action_mailer.delivery_method = :sendgrid
   config.active_record.dump_schema_after_migration = false
   config.action_mailer.perfom_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'les-4-chatons-fantastiques.herokuapp.com' }
 end
