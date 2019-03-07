@@ -1,10 +1,16 @@
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
-  <div class="page-header" filter-color="orange">
-    <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div>
+
+  <div class="banner">
+      <div class='img-banner'>
+        <%= image_tag("banner.jpg") %>
+      </div>
+<div class='text-banner-connection'>
+  <!-- <div class="page-header" filter-color="orange"> -->
+    <!-- <div class="page-header-image" style="background-image:url(../assets/img/login.jpg)"></div> -->
     <div class="content">
       <div class="container">
-        <div class="col-md-5 ml-auto mr-auto">
+        <div class="col-md-8 ml-auto mr-auto">
           <div class="card card-login card-plain">
             <form class="form" method="" action="">
               <div class="card-header text-center">
@@ -14,7 +20,7 @@
               </div>
               <div class="card-body">
               	<h4 class="card-title text-center">Forgot your password ?</h4>
-                <div class="input-group form-group-no-border input-lg">
+                <div class="input-group form-group-no-border input-lg input-color">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="far fa-envelope"></i></span>
                     
@@ -41,3 +47,5 @@
       </div>
     </div>
   </div>
+    </div>
+    </div>
