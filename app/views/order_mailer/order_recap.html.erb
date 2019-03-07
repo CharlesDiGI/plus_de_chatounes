@@ -12,12 +12,14 @@
       <tr style="border:1px solid black;text-align:left;border-collapse:collapse;">
         <th>Produit</th>
         <th>Description</th>
+        <th>Link to image</th>
         <th>Prix</th>
       </tr>
       <% @items.each do |item| %>
         <tr style="border:1px solid black;text-align:left;border-collapse:collapse;">
           <td><strong><%= item.title %></strong></td>
           <td><%= item.description %></td>
+          <td><%= link_to item.title url_for(item.image) %></td>
           <td><%= item.price %></td>
         </tr>
       <%end %>
