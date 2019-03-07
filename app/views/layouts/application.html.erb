@@ -9,66 +9,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body class="landing-page  d-flex flex-column">
-    <nav class="navbar navbar-expand-lg bg-white float-top mb-0">
-      <div class="container">
 
-        <div class="navbar-translate">
-          <a class="navbar-brand" href="<%= root_path %>" rel="tooltip" title="Designed and Coded by fantastic four" data-placement="bottom">
-            Plus de chatounes
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-bar bar1"></span>
-            <span class="navbar-toggler-bar bar2"></span>
-            <span class="navbar-toggler-bar bar3"></span>
-          </button>
-        </div>
-
-        <div class="collapse navbar-collapse" data-nav-image="../assets/img/blurred-image-1.jpg" data-color="orange">
-        
-          <div class="navbar-nav flex-row ml-md-auto d-none d-md-flex">    
-            <% if user_signed_in? %>
-              <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <% if current_user.first_name != nil %>
-                  <i class="fas fa-user"></i> <%= current_user.first_name %>
-                <% end %>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to user_path(current_user.id), :class => "dropdown-item" do %>
-                  <i class="fas fa-user-circle"></i> My Profile
-                  <% end %>
-                  <%= link_to destroy_user_session_path, method: :delete,  data: { confirm: "Tu es sûr-e ?" }, :class => "dropdown-item" do %>
-                  <i class="fas fa-sign-out-alt"></i> Log out
-                  <% end %>
-                </div>
-              </div>
-
-            <% else %>
-              <div class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Connexion
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                  <%= link_to new_user_session_path, :class => "dropdown-item" do %>
-                  <i class="fas fa-sign-in-alt"></i> Log in
-                  <% end %>
-                  <%= link_to new_user_registration_path, :class => "dropdown-item" do %>
-                  <i class="fas fa-user-plus"></i> Sign up
-                  <% end %>
-                </div>
-              </div>
-            <% end %>
-
-            <% if user_signed_in? %>
-            <div class="nav-item align-self-center">
-              <a href="<%= cart_path(current_user.cart) %>"><i class="fas fa-shopping-cart"></i> Cart</a>
-            </div>
-            <% end %>
-          </div>
-
-        </div>
-      </div>
-    </nav>
+    <% if admin_navbar? %>
+      <%= render 'layouts/navbar_admin' %>
+    <% else %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
+ 
 
     <%= render 'layouts/flash'%>
 

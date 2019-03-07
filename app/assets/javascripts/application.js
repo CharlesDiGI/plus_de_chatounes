@@ -29,15 +29,8 @@
 //= require_tree .
 
 function slideIndex() {
-    $(document).ready(function(){
-        $('#btn-banner').on('click', function(evt){
-           evt.preventDefault(); 
-     var target = $('#img-ancre');
-     $('html, body')
-           .stop()
-           .animate({scrollTop: $(target).offset().top}, 1000 );
-        });
-    });
+	$(document).ready(function(){
+		let target = $('#img-ancre');
+		$('html, body').stop().animate({scrollTop: $(target).offset().top}, 1000 );
+	});
 }
-
-slideIndex()

@@ -11,5 +11,11 @@ Rails.application.routes.draw do
   # match 'my_cart', to: 'carts#show', via: [:get]
   resources :orders
   resources :charges
+
+  namespace :admin do
+    resources :items
+    resources :admins, only: [:index]
+    root 'admins#index'
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
