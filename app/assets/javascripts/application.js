@@ -13,8 +13,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require core/bootstrap.min
 //= require core/jquery.3.2.1.min
+//= require core/bootstrap.min
 //= require core/popper.min
 
 //= require plugins/moment.min
