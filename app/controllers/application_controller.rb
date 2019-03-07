@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include UsersHelper
   include OrdersHelper
   include DeviseHelper
+  include ItemsHelper
 	protect_from_forgery with: :exception
 	before_action :set_cart
  
