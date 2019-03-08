@@ -1,60 +1,58 @@
 class Admin::ItemsController < ApplicationController
-    before_action :set_item, only: [:show, :edit, :update, :destroy]
-    before_action :is_admin?
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :is_admin?
 
-    def index
-      @items = Item.all
-    end
+  def index
+    @items = Item.all
+  end
 
-    def show
-        @itm = Item.find(paramd[:id])
-    end
+  def show
+    @item = Item.find(params[:id])
+  end
 
-    def new
-      @item = Item.new
-    end
+  def new
+    @item = Item.new
+  end
 
-    def edit
-    end
- 
-    def create
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def create
+    if params[:item][:image].present?
       @item = Item.new(item_params)
+      @item.image_url = url_for(@item.image)
       @item.image.attach(params[:item][:image])
-      
-        if @item.save
-          redirect_to admin_item_path(@item.id)
-        else
-          render :new
-        end
-        
-    end
-  
-    def update
-      respond_to do |format|
-        if @item.update(item_params)
-          format.html { redirect_to @item, notice: 'Item was successfully updated.' }
-          format.json { render :show, status: :ok, location: @item }
-        else
-          format.html { render :edit }
-          format.json { render json: @item.errors, status: :unprocessable_entity }
-        end
+      if @item.save
+        redirect_to admin_item_path(@item.id)
+      else
+        render :new
       end
     end
-  
-    def destroy
-      @item.destroy
-      respond_to do |format|
-        format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
-        format.json { head :no_content }
-      end
-    end
-  
-    private
-      def set_item
-        @item = Item.find(params[:id])
-      end
+  end
 
-      def item_params
-        params.require(:item).permit(:title, :description, :price, image: {}) 
-      end
+  def update
+    @item = Item.find(params[:id])
+    if @item.update(item_params)
+      redirect_to admin_item_path(@item.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to admin_items_path, notice: "L'item a bien été supprimé."
+  end
+
+
+  private
+  def set_item
+    @item = Item.find(params[:id])
+  end
+
+  def item_params
+    params.require(:item).permit(:title, :description, :price, :image, :category_id)
+  end
 end

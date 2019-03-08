@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   include OrdersHelper
   include DeviseHelper
   include ItemsHelper
+  include Admin::AdminsHelper
 	protect_from_forgery with: :exception
-	before_action :set_cart
+  before_action :set_cart
  
   private
  
@@ -15,4 +16,5 @@ class ApplicationController < ActionController::Base
     @current_cart = Cart.create(user: current_user)
     session[:cart_id] = @current_cart.id
   end
+
 end

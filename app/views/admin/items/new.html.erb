@@ -3,12 +3,19 @@
     <div class="card-body">
         <h1 class="mb-5">Ajouter un item</h1>
 
-        <%= form_with model: @item, local: true, :html => {:class => 'input-color'}  do |f| %>
+        <%= form_for([:admin, @item], :html => {:class => 'input-color'}) do |f| %>
                 <%= f.label 'Choisis ton image :' %>
-                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/jpg' %>
+                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/jpg', :required => true %>
                 <%= f.text_field :title, class:"form-control mb-4", placeholder: 'Titre' %>
                 <%= f.text_area :description, class:"form-control mb-4", placeholder: 'Description' %>
                 <%= f.text_field :price, class:"form-control mb-4", placeholder: 'Prix' %>
+                
+                <%= f.radio_button :category_id, 1, :checked => true %>
+                <%= f.label :kitty, 'Kitty' %><br/>
+               
+                <%= f.radio_button :category_id, 2 %>
+                <%= f.label :kibble, 'Kibble' %><br/>
+
                 <%= f.submit "Ajouter mon item", class: "btn btn-secondary" %>
 
         <% end %>

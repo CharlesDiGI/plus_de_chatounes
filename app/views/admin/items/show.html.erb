@@ -12,9 +12,15 @@
 	  	 	<%= image_tag(@item.image) if @item.image.attached? %>
 		</div>
 
-		<div class="col-md-7">
+		<div class="col-md-7 btn-color">
 			<h5 class="category">Description</h5>
-			<p><%= @item.description %></p>
+			<p><%= @item.description %></p><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+			<%= link_to edit_admin_item_path(@item.id), class: "btn btn-secondary rounded float-left mx-2", method: :get, title: 'Edit the comment' do %>
+                <i class="fas fa-pencil-alt"></i>
+            <% end %>
+			<%= link_to admin_item_path(@item.id), method: "delete", class: "btn btn-danger rounded float-left mx-2", title: 'Delete the gossip', data: { confirm: "Tu es sûr-e de voiloir supprimer cet item ?"} do %>
+				<i class="fas fa-trash-alt"></i>
+			<% end %>
 		</div>
 	</div>
 	
@@ -29,7 +35,6 @@
 
 	<div class="row mt-5">
 		<div class="col-md text-right">
-			<%= link_to 'Edit', edit_item_path(@item) %> |
 			<%= link_to 'Back', items_path %>
 		</div>
 	</div>
