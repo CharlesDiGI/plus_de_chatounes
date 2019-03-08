@@ -5,7 +5,7 @@
 
         <%= form_for([:admin, @item], :html => {:class => 'input-color'}) do |f| %>
                 <%= f.label 'Choisis ton image :' %>
-                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/jpg' %>
+                <%= f.file_field :image, class: 'form-control-file mb-4', :accept => 'image/jpg', :required => true %>
                 <%= f.text_field :title, class:"form-control mb-4", placeholder: 'Titre' %>
                 <%= f.text_area :description, class:"form-control mb-4", placeholder: 'Description' %>
                 <%= f.text_field :price, class:"form-control mb-4", placeholder: 'Prix' %>

@@ -19,9 +19,6 @@ Rails.application.routes.draw do
     root 'admins#index'
   end
 
-<<<<<<< HEAD
-=======
   # get '*path' => redirect('/')
->>>>>>> delivery
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
