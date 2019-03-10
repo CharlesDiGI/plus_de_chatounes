@@ -1,6 +1,6 @@
 module ItemsHelper
 	def is_kitty?(item)
-		if item.category == Category.find(1)
+		if item.category == Category.first
 			true
 		else
 			false
@@ -8,7 +8,7 @@ module ItemsHelper
 	end
 
 	def is_kibble?(item)
-		if item.category == Category.find(2)
+		if item.category == Category.last
 			true
 		else
 			false
